@@ -15,11 +15,9 @@ app.get('/home',(req:any,res:any)=>{
 });
 
 app.use((req:any, res:any) => {
-    res.type('text/html');
     res.status(404);
-    res.send('<p>Dit is niet een juiste url. Klik <a href="http://localhost:3000/">hier</a> om naar de landing pagina te gaan.</p>');
-    }
-);
+    res.render('error');
+});
 
 app.listen(app.get('port'), 
     ()=>console.log( '[server] http://localhost:' + app.get('port')));
