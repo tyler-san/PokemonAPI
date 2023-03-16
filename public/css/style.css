@@ -1,0 +1,35 @@
+/* buttons for landing page */
+.btn-secondary:hover {
+    background-color: #50c878;
+    border-color: white;
+    
+}
+
+.btn-primary:hover {
+    background-color: #b80f0a;
+    border-color: white;
+    
+}
+
+.btn-primary:focus {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-primary:active {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+
+.btn-primary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+
+
+
+
+
