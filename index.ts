@@ -14,6 +14,14 @@ app.get('/home',(req:any,res:any)=>{
     res.render('home');
 });
 
+app.get('/compare',(req:any,res:any)=>{
+    res.render('compare');
+});
+
+app.get('/battler',(req:any,res:any)=>{
+    res.render('battler');
+});
+
 app.use((req:any, res:any) => {
     res.status(404);
     res.render('error');
