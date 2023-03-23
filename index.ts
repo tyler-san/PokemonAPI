@@ -22,6 +22,14 @@ app.get('/battler',(req:any,res:any)=>{
     res.render('battler');
 });
 
+app.get('/catch',(req:any,res:any)=>{
+    res.render('catch');
+});
+
+app.get('/who',(req:any,res:any)=>{
+    res.render('who');
+});
+
 app.use((req:any, res:any) => {
     res.status(404);
     res.render('error');
