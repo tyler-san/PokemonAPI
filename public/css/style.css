@@ -98,3 +98,22 @@
     position: absolute;
     top: 92%;
 }
+
+/* who page */
+
+.whoPokemonContainer  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.whoPokemonContainer > img  {
+    width: 300px;
+    
+    filter: brightness(0);    
+}
+
+.whoPokemonContainer > label  {
+    align-self: flex-start;   
+}
