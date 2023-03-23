@@ -160,7 +160,7 @@ main{
 .whoPokemonContainer > label  {
     align-self: flex-start;   
 }
-======
+
 .homepagina {
     display: grid;
     grid-template-areas: 
