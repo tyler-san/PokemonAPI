@@ -77,3 +77,24 @@
     display: block;
     margin: auto;
 }
+
+/* catch page */
+
+.pokemonContainer  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.pokemonContainer > #pokemonImage {
+    width: 300px;
+    background-color: #EEEEEE;
+    
+}
+
+.pokemonContainer > #pokeball {
+    width: 150px;
+    position: absolute;
+    top: 92%;
+}
