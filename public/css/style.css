@@ -141,6 +141,7 @@ main{
     top: 92%;
 }
 
+
 /* who page */
 
 .whoPokemonContainer  {
@@ -159,3 +160,44 @@ main{
 .whoPokemonContainer > label  {
     align-self: flex-start;   
 }
+======
+.homepagina {
+    display: grid;
+    grid-template-areas: 
+    "nav    nav     nav     nav   "
+    "header header  header  header"
+    " main main  main main   "
+    "footer footer  footer  footer";
+    
+    max-width: 100rem;
+    margin: auto;
+  }
+
+  header {
+    grid-area: header;
+    background-color: black;
+    
+  }
+  main {
+    grid-area: main;
+    padding: 0rem 0rem 1rem 0rem;
+    
+  
+  }
+
+  footer {
+    grid-area: footer;
+    
+    color: black;
+    background-color: #f1f1f1;
+  }
+  nav {
+    grid-area: nav;
+    
+    
+    background-color: black;
+    
+    
+    
+  }
+
