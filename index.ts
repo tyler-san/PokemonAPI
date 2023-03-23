@@ -17,10 +17,6 @@ app.get('/eigenPokemonExtra',(req:any,res:any)=>{
     res.render('eigenPokemonExtra');
 });
 
-app.get('/eigenPokemonExtra',(req:any,res:any)=>{
-    res.render('eigenPokemonExtra');
-});
-
 app.get("/battler", (req: any, res: any) => {
   res.render("battler");
 });
@@ -31,10 +27,6 @@ app.get("/home", (req: any, res: any) => {
 
 app.get("/compare", (req: any, res: any) => {
   res.render("compare");
-});
-
-app.get("/battler", (req: any, res: any) => {
-  res.render("battler");
 });
 
 app.get("/catch", (req: any, res: any) => {
