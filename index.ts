@@ -13,6 +13,17 @@ app.get("/", (req: any, res: any) => {
 app.get("/eigenPokemonBekijken", (req: any, res: any) => {
   res.render("eigenPokemonBekijken");
 });
+app.get('/eigenPokemonExtra',(req:any,res:any)=>{
+    res.render('eigenPokemonExtra');
+});
+
+app.get('/eigenPokemonExtra',(req:any,res:any)=>{
+    res.render('eigenPokemonExtra');
+});
+
+app.get("/battler", (req: any, res: any) => {
+  res.render("battler");
+});
 
 app.get("/home", (req: any, res: any) => {
   res.render("home");
