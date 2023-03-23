@@ -140,7 +140,7 @@ main{
     position: absolute;
     top: 92%;
 }
-
+<<<<<<<<< Temporary merge branch 1
 
 /* who page */
 
@@ -160,7 +160,7 @@ main{
 .whoPokemonContainer > label  {
     align-self: flex-start;   
 }
-
+=========
 .homepagina {
     display: grid;
     grid-template-areas: 
@@ -200,4 +200,4 @@ main{
     
     
   }
-
+>>>>>>>>> Temporary merge branch 2
