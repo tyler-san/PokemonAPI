@@ -10,6 +10,10 @@ app.get('/',(req:any,res:any)=>{
     res.render('index');
 });
 
+app.get('/eigenPokemonExtra',(req:any,res:any)=>{
+    res.render('eigenPokemonExtra');
+});
+
 app.get('/home',(req:any,res:any)=>{
     res.render('home');
 });
