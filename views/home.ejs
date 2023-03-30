@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="/css/style.css">
    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+
+    
 </head>
 <body class="homepagina"  >
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#"><img src="/images/TeamLogo.png" alt="" width="70" height="24"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,151 +53,155 @@
       </div>
     </div>
   </nav>
-  <header>
-    <h2>Carousel Example</h2>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="images/pokemon.jpg" alt="Los Angeles" style="width: 300px;">
-      </div>
-
-      <div class="item">
-        <img src="images/pokemon.jpeg" alt="Chicago" style="width: 300px;">
-      </div>    
+  <header class = "p-3 m-0 border-0 bd-example">
     
-      <div class="item">
-        <img src="images/pokemon.jpeg" alt="New york" style="width: 300px;">
+    <!--div id="carouselExampleCaptions" class="carousel slide pointer-event">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item active">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div-->
+
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/TeamLogo.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/TeamLogo.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/TeamLogo.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
+      
   </header>
 
 
 
     
       <main>
-        <div class="container">
-            <h2>Image Gallery</h2>
-            <p>The .thumbnail class can be used to display an image gallery.</p>
-            <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
-            <p>Click on the images to enlarge them.</p>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <a href="/w3images/lights.jpg" target="_blank">
-                    <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
-                    <div class="caption">
-                      <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <a href="/w3images/nature.jpg" target="_blank">
-                    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-                    <div class="caption">
-                      <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <a href="/w3images/fjords.jpg" target="_blank">
-                    <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-                    <div class="caption">
-                      <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="/w3images/nature.jpg" target="_blank">
-                        <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-                        <div class="caption">
-                          <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                        </div>
-                      </a>
-                    </div>
+        
+          <section>
+            <article>
+                <h1>Battler</h1>
+                <img src="images/TeamLogo.png" alt="some text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad unde cupiditate dolore facere, magnam alias.
+                  Similique obcaecati quaerat vitae a impedit fuga, voluptatem voluptate numquam architecto optio laudantium!
+                  Voluptas.</p>
+                <a href="battler"><button>bekijken</button></a>
+              </article>
+              <article>
+                <h1>catch</h1>
+                <img src="images/TeamLogo.png" alt="some text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad unde cupiditate dolore facere, magnam alias.
+                  Similique obcaecati quaerat vitae a impedit fuga, voluptatem voluptate numquam architecto optio laudantium!
+                  Voluptas.</p>
+                <a href="catch"><button>bekijken</button></a>
+              </article>
+              <article>
+                <h1>compare</h1>
+                <img src="images/TeamLogo.png" alt="some text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad unde cupiditate dolore facere, magnam alias.
+                  Similique obcaecati quaerat vitae a impedit fuga, voluptatem voluptate numquam architecto optio laudantium!
+                  Voluptas.</p>
+                 <a href="compare"><button>bekijken</button></a>
+              </article>
+              <article>
+                <h1>Pokemon Bekijken</h1>
+                <img src="images/TeamLogo.png" alt="some text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad unde cupiditate dolore facere, magnam alias.
+                  Similique obcaecati quaerat vitae a impedit fuga, voluptatem voluptate numquam architecto optio laudantium!
+                  Voluptas.</p>
+                <a href="eigenPokemonBekijken"><button>bekijken</button></a>
+              </article>
+              <!--article>
+                <h1>Pokemon extra</h1>
+                <img src="images/TeamLogo.png" alt="some text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad unde cupiditate dolore facere, magnam alias.
+                  Similique obcaecati quaerat vitae a impedit fuga, voluptatem voluptate numquam architecto optio laudantium!
+                  Voluptas.</p>
+                <a href="#"><button>bekijken</button></a>
+              </article>
+              <article>
+                <h1>Error</h1>
+                <img src="images/TeamLogo.png" alt="some text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ad unde cupiditate dolore facere, magnam alias.
+                  Similique obcaecati quaerat vitae a impedit fuga, voluptatem voluptate numquam architecto optio laudantium!
+                  Voluptas.</p>
+                <a href="#"><button>bekijken</button></a>
+              </article-->
+            </section>
+        
 
-              </div>
-              
-            </div>
-          </div>
-          <div class="container">
-            <h2>Image Gallery</h2>
-            <p>The .thumbnail class can be used to display an image gallery.</p>
-            <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
-            <p>Click on the images to enlarge them.</p>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <a href="/w3images/lights.jpg" target="_blank">
-                    <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
-                    <div class="caption">
-                      <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <a href="/w3images/nature.jpg" target="_blank">
-                    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-                    <div class="caption">
-                      <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <a href="/w3images/fjords.jpg" target="_blank">
-                    <img src="/w3images/fjords.jpg" alt="Fjords" style="width:100%">
-                    <div class="caption">
-                      <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="/w3images/nature.jpg" target="_blank">
-                        <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-                        <div class="caption">
-                          <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-                        </div>
-                      </a>
-                    </div>
-
-              </div>
-              
-            </div>
-          </div>
       </main>
-      <footer>
-
-      </footer>
       
+
+      <footer>
+        
+        <%- include('partials/footer')  %> 
+      </footer>
     
 </body>
+
 </html>
