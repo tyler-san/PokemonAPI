@@ -180,7 +180,7 @@ main{
     grid-area: header;
     margin-right: 100%;
   }
-  main {
+  .mainhome {
     grid-area: main;
     padding: 0rem 0rem 1rem 0rem;
    /* margin-bottom: 50%;*/
