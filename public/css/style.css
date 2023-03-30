@@ -20,7 +20,7 @@ main{
 
 /*footer*/
 .footer{
-    background-color: #6c757d;
+    background-color: black;
     color: white;
     padding: 2pc;
     text-align: center;
@@ -168,28 +168,37 @@ main{
     " main main  main main   "
     "footer footer  footer  footer";
     
-    max-width: 100rem;
+    max-width: 80rem;
     margin: auto;
-  }
-
-  header {
-    grid-area: header;
     background-color: black;
     
+  }
+
+  
+    
+  header{
+    grid-area: header;
+    margin-right: 100%;
   }
   main {
     grid-area: main;
     padding: 0rem 0rem 1rem 0rem;
+   /* margin-bottom: 50%;*/
+    background-color: #b80f0a;
+    width: auto;
+    
+    
     
   
   }
-
-  footer {
+  footer{
     grid-area: footer;
-    
-    color: black;
-    background-color: #f1f1f1;
+    background-color:black;
+    color: white;
+    max-width: 100%;
   }
+
+  
   nav {
     grid-area: nav;
     
@@ -198,4 +207,49 @@ main{
     
     
     
+  }
+  .laatste {
+    color: #EEEEEE;
+    margin: 16px -708.667px 0px 51.3958px ;
+  }
+  h2{
+    margin: 0px 8.8px 22px;
+    padding: 60.5833px 0px 0px;
+  }
+  ul{
+    margin: 0px 0px 24px;
+  }
+  section {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: white
+    
+  }
+  
+  article {
+    /*flex: 1 1 350px;
+    margin-bottom: 2rem;*/
+    flex: 0 40%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  border-radius: 2% ;
+
+  }
+  
+  article img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  button{
+    text-align: center;
   }
