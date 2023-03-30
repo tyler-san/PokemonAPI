@@ -1,23 +1,80 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    margin: 0 auto;
-}
-
-header {grid-area: header;}
-nav {grid-area: menu;}
-main {grid-area: main;}
-aside {grid-area: right;}
-footer {grid-area: footer;}
 
 body {
-    display: grid;
-    grid-template-areas:
-    "header header menu"
-    "main main main"
-    "footer footer footer";
-    grid-template-rows: 180px auto 40px;
-    margin: 0;
-    min-height: 100vh;
-  }
+  display: grid;
+  grid-template-areas: 
+  "nav    nav     nav"
+  "header header header"
+  "main   main    main"
+  "footer footer footer";
+  background-color:#32A4BF;
+}
+
+.middle img{
+  background-color: white;
+  width: 250px;
+}
+
+.middle figure figcaption{
+  background-color: #3085BF;
+  width: 250px;
+}
+
+.switchbuttons ul li{
+  list-style: none;
+}
+.switchbuttons ul li button img{
+  width: 50px;
+}
+.shiny{
+  background-color: yellow;
+}
+
+.gender{
+  background-color:#2A44BF ;
+}
+
+.turnAround{
+  background-color: #3BC45B;
+}
+/*--- evolutionPath ---*/
+#evolutionPath {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  background-color: aqua;
+
+}
+#evolutionPath .logo {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  margin: 3.5rem 0 0 4rem;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+#evolutionPath ul {
+  display: flex;
+}
+#evolutionPath ul li {
+  list-style: none;
+}
+#evolutionPath ul li a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  margin: 4rem 1.5rem 0 0;
+  transition: letter-spacing 0.2s, color 0.2s
+}
+
+#evolutionPath ul li a:hover {
+  color: var(--link-color);
+  letter-spacing: 0.25rem;
+  font-weight: bold;
+}
+#evolutionPath li img {
+  height: 2.8rem;
+  width: auto;
+}
+
