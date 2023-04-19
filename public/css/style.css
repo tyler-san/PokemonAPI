@@ -1,10 +1,10 @@
 /*voor elke pagina hetzelfde*/
-html{
+html {
     height: 100%;
     box-sizing: border-box;
 }
 
-body{
+body {
     position: relative;
     margin: 0;
     min-height: 100%;
@@ -13,14 +13,14 @@ body{
     background-color: white;
 }
 
-main{
+main {
     width: 80%;
     margin: 0 auto;
     padding-top: 32px;
 }
 
 /*footer*/
-.footer{
+.footer {
     background-color: black;
     color: white;
     padding: 2pc;
@@ -30,11 +30,11 @@ main{
     width: 100%;
 }
 
-.footer p{
+.footer p {
     margin: auto;
 }
 
-.footer img{
+.footer img {
     display: inline-block;
     width: 150px;
 }
@@ -43,13 +43,13 @@ main{
 .btn-secondary:hover {
     background-color: #50c878;
     border-color: white;
-    
+
 }
 
 .btn-primary:hover {
     background-color: #b80f0a;
     border-color: white;
-    
+
 }
 
 .btn-primary:focus {
@@ -79,7 +79,7 @@ main{
 
 
 .errorPage #titleError {
-    
+
     font-weight: bold;
 }
 
@@ -99,7 +99,7 @@ main{
     border-radius: 20px;
 }
 
-.compareField{
+.compareField {
     border-radius: 5px;
     border-color: black;
     padding: 5px;
@@ -108,7 +108,7 @@ main{
     margin-top: 10px;
 }
 
-.compareButton{
+.compareButton {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -119,10 +119,12 @@ main{
     color: #b80f0a;
     font-weight: bold;
 }
-.comparecontainer{
+
+.comparecontainer {
     min-height: 100%;
 }
-#compareBody{
+
+#compareBody {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -130,7 +132,7 @@ main{
     align-items: center;
 }
 
-#compareBox{
+#compareBox {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -141,13 +143,14 @@ main{
     text-transform: uppercase;
 }
 
-.PokemonCompareName{
+.PokemonCompareName {
     font-size: 24px;
     text-transform: uppercase;
 }
+
 /*battler page*/
 
-.hpbar{
+.hpbar {
     background-color: green;
     width: 10pc;
     height: 1pc;
@@ -156,43 +159,45 @@ main{
     margin: auto;
 }
 
-.battle-btn{
+.battle-btn {
     display: block;
     margin: auto;
 }
 
-.battlerWelkom{
+.battlerWelkom {
     text-align: center;
     font-weight: bold;
     justify-content: center;
 }
 
-.battlerWelkom p{
+.battlerWelkom p {
     font-size: 20px;
 }
 
-#huidigePokemon{
+#huidigePokemon {
     flex-direction: column;
 }
-#battlerPokemon{
+
+#battlerPokemon {
     flex-direction: column;
 }
+
 /* catch page */
 
-.pokemonContainer  {
+.pokemonContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
 }
 
-.pokemonContainer > #pokemonImage {
+.pokemonContainer>#pokemonImage {
     width: 300px;
     background-color: #EEEEEE;
-    
+
 }
 
-.pokemonContainer > #pokeball {
+.pokemonContainer>#pokeball {
     width: 150px;
     position: absolute;
     top: 92%;
@@ -200,83 +205,86 @@ main{
 
 /* who page */
 
-.whoPokemonContainer  {
+.whoPokemonContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
-    
+
 }
 
-.whoPokemonContainer > img  {
+.whoPokemonContainer>img {
     width: 300px;
-    
-    filter: brightness(0);    
+
+    filter: brightness(0);
 }
 
-.whoPokemonContainer > label  {
-    align-self: flex-start;   
+.whoPokemonContainer>label {
+    align-self: flex-start;
 }
 
 .homepagina {
     display: grid;
-    grid-template-areas: 
-    "nav    nav     nav     nav   "
-    "header header  header  header"
-    " main main  main main   "
-    "footer footer  footer  footer";
-    
-    max-width: 80rem;
-    margin: auto;
-    background-color: black;
-    
-  }
+    grid-template-areas:
+        "nav    nav     nav     nav   "
+        "header header  header  header"
+        " main main  main main   "
+        "footer footer  footer  footer";
 
-  
-    
-  header{
+    margin: auto;
+}
+
+
+
+header {
     grid-area: header;
     margin-right: 100%;
-  }
-  .mainhome {
+}
+
+.mainhome {
     grid-area: main;
     padding: 0rem 0rem 1rem 0rem;
-   /* margin-bottom: 50%;*/
+    /* margin-bottom: 50%;*/
     background-color: #b80f0a;
     width: auto;
-    
-    
-    
-  
-  }
-  footer{
+
+
+
+
+}
+
+footer {
     grid-area: footer;
-    background-color:black;
+    background-color: black;
     color: white;
     max-width: 100%;
-  }
+}
 
-  
-  nav {
+
+nav {
     grid-area: nav;
-    
-    
+
+
     background-color: black;
-    
-    
-    
-  }
-  .laatste {
+
+
+
+}
+
+.laatste {
     color: #EEEEEE;
-    margin: 16px -708.667px 0px 51.3958px ;
-  }
-  h2{
+    margin: 16px -708.667px 0px 51.3958px;
+}
+
+h2 {
     margin: 0px 8.8px 22px;
     padding: 60.5833px 0px 0px;
-  }
-  ul{
+}
+
+ul {
     margin: 0px 0px 24px;
-  }
-  section {
+}
+
+section {
     width: 90%;
     margin: 0 auto;
     margin-top: 20px;
@@ -286,27 +294,31 @@ main{
     justify-content: space-between;
     gap: 20px;
     background-color: white
-    
-  }
-  
-  article {
+}
+
+article {
     /*flex: 1 1 350px;
     margin-bottom: 2rem;*/
     flex: 0 40%;
-  height: auto;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  border-radius: 2% ;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    border-radius: 2%;
 
-  }
-  
-  article img {
+}
+
+article img {
     display: block;
     width: 100%;
     height: auto;
     margin-bottom: 0.5rem;
-  }
+}
 
-  button{
+button {
     text-align: center;
-  }
+}
+
+/*Menu*/
+.navbar-collapse{
+    flex: none;
+}
