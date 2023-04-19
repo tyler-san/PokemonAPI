@@ -17,12 +17,11 @@ app.get("/", (req: any, res: any) => {
 });
 
 const compareRoute = require('./routes/compare')
+const mypokemonRoute = require('./routes/mypokemon')
 
 app.use('/', compareRoute)
+app.use('/', mypokemonRoute)
 
-app.get("/eigenPokemonBekijken", (req: any, res: any) => {
-  res.render("eigenPokemonBekijken");
-});
 app.get('/eigenPokemonExtra',(req:any,res:any)=>{
     res.render('eigenPokemonExtra');
 });
