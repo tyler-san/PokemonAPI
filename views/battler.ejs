@@ -14,12 +14,17 @@
         <%- include('partials/menu')  %> 
     </header>
     <main>
+        <section class="battlerWelkom">
+            <h1>Welkom op de strijd pagina</h1>
+            <p>Hier kun je jouw eigen Pokemon tegen andere laten vechten. Je kan zelf kiezen tegen welke Pokemon je het gevecht aan gaat. Betreed onze strijd pagina en laat jouw Pokemon zien wat ze waard zijn!</p>
+        </section>
         <div class="container text-center">
             <div class="row">
                 <div class="col">
                     <section id="huidigePokemon">
+                        <h2>Je huidige pokemon</h2>
                         <form action="" method="get">
-                            <input type="text" name="pokemon" placeholder="Huidige pokemon" class="compareField">
+                            <input type="text" name="pokemon" value="Houndoom" class="compareField" disabled>
                         </form>
                         <figure>
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/229.png" alt="picture of current pokemon">
@@ -29,6 +34,7 @@
                 </div>
                 <div class="col">
                     <section id="battlerPokemon">
+                        <h2>Je tegenstander</h2>
                         <form action="" method="post">
                             <input type="text" name="pokemon" placeholder="pokemon 2" class="compareField">
                         </form>

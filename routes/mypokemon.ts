@@ -17,13 +17,18 @@ let allPokemonNames:string[] = [];
 // }
 
 let pokemon : Pokemon[] = [
-    {name: "Pikachu", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png", id:1},
-    {name: "Pidgey", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png", id:2},
-    {name: "Weedle", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png", id:3},
-    {name: "Butterfree", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png", id:4},
+    {name: "Pikachu", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png", id:25},
+    {name: "Pidgey", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png", id:16},
+    {name: "Weedle", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png", id:13},
+    {name: "Butterfree", image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png", id:12},
 ];
 
 mypokemon.get("/eigenPokemonBekijken", (req: any, res: any) => {
+    pokemon.sort((a,b)=>{
+        if(a.id > b.id ) return 1;
+        if(a.id < b.id ) return -1;
+        return 0;
+    })
     res.render("eigenPokemonBekijken",{pokemonlist:pokemon});
 });
 

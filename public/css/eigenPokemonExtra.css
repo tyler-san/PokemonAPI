@@ -2,7 +2,6 @@
 body {
   display: grid;
   grid-template-areas: 
-  "nav    nav     nav"
   "header header header"
   "main   main    main"
   "footer footer footer";

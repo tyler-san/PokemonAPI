@@ -161,6 +161,16 @@ main{
     margin: auto;
 }
 
+.battlerWelkom{
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.battlerWelkom p{
+    font-size: 20px;
+}
+
 #huidigePokemon{
     flex-direction: column;
 }
