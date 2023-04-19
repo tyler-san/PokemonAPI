@@ -47,8 +47,8 @@ compare.get('/compare', async (req:any,res:any)=>{
 compare.post('/getPokemon',(req:any,res:any)=>{
     let bestaatPokemon1:boolean = false;
     let bestaatPokemon2:boolean = false;
-    pokemon1Name = req.body.pokemon1.toLowerCase();
-    pokemon2Name = req.body.pokemon2.toLowerCase();
+    pokemon1Name = req.body.pokemon1.toLowerCase().trimStart().trimEnd();
+    pokemon2Name = req.body.pokemon2.toLowerCase().trimStart().trimEnd();
     //check of de naam die wordt meegegeven via de body tussen de pokemon namen zit
     getAllPokemonNames()
     .then(()=>{

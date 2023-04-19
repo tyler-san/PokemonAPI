@@ -10,6 +10,7 @@ body{
     min-height: 100%;
     padding-bottom: 6.74rem;
     box-sizing: inherit;
+    background-color: white;
 }
 
 main{
@@ -123,7 +124,7 @@ main{
 }
 #compareBody{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -160,6 +161,12 @@ main{
     margin: auto;
 }
 
+#huidigePokemon{
+    flex-direction: column;
+}
+#battlerPokemon{
+    flex-direction: column;
+}
 /* catch page */
 
 .pokemonContainer  {
