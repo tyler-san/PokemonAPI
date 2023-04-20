@@ -13,6 +13,7 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 
+    <script src="script.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/eigenPokemonExtra.css">
 
@@ -23,9 +24,7 @@
   <header></header>
   <main>
     <section id="selectedPokemon">
-      <article class="left">
-        <p>Bijnaam:</p>
-      </article>
+
 
       <article class="middle">
         <h1>#009 - Blastoise</h1>
@@ -42,8 +41,8 @@
           <li><button class="turnAround"><img src="images/turn-icon.png" alt="fornt back button"></button>Front</li>
         </ul>
       </article>
-      <article class="right">
-        <!-- Een idee? verschillende stylen voor de "pokedex" -->
+      <!-- <article class="right">
+        Een idee? verschillende stylen voor de "pokedex"
         <div class="btn-group">
           <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Kies je pokédex-style
@@ -65,6 +64,11 @@
             <li><a class="dropdown-item" href="#">Default</a></li>
           </ul>
         </div>
+      </article> -->
+
+      <article class="left">
+        <p>Bijnaam: Kiryu-Chan</p>
+
       </article>
     </section>
     <section id="stats">
@@ -96,6 +100,24 @@
           </a></li>
       </ul>
     </section>
+    <section id="evolutionPath">
+      <ul>
+        <h2>Variants</h2>
+        <li>
+          <figure><a href="#"><img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10036.png" alt="">
+          <figcaption>#007  Mega Blastoise</figcaption>
+        </a></figure>
+        </li>
+        <li>
+          <figure><a href="#"><img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10197.png" alt="">
+          <figcaption>#007  Gigantamax Blastoise</figcaption>
+        </a></figure>
+        </li>
+      </ul>
+      
+      
+    </section>
   </main>
-</body>
-</html>
+  <%- include('partials/footer')  %> 
