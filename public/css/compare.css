@@ -1,0 +1,57 @@
+/*Compare page*/
+
+.compareStats {
+    border: 5px solid black;
+    padding: 1pc;
+    width: 350px;
+    border-radius: 20px;
+}
+
+.compareField {
+    border-radius: 5px;
+    border-color: black;
+    padding: 5px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.compareButton {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 35px;
+    padding: 10px 20px 10px 20px;
+    background-color: black;
+    color: #b80f0a;
+    font-weight: bold;
+}
+
+.comparecontainer {
+    min-height: 100%;
+}
+
+#compareBody {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#compareBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.PokemonCompareName {
+    font-size: 24px;
+    text-transform: uppercase;
+}
