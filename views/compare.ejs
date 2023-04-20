@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compare</title>
+    <%- include('partials/bootstrap')  %>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/compare.css">
-    <%- include('partials/bootstrap')  %>
 </head>
 <body>
     <header>
@@ -33,7 +33,7 @@
                                 <div id="statsPokemon1" class="compareStats">
                                     <figure>
                                         <figcaption class="PokemonCompareName"><%= pokemon1Name %></figcaption>
-                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= picP1%>.png" alt="picture of pokemon1">
+                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= picP1%>.png" alt="picture of pokemon1">
                                     </figure>
                                     <p>weight: <%= pokemon1Weight %></p>
                                     <% 
@@ -59,7 +59,7 @@
                                 <div id="statsPokemon2" class="compareStats">
                                     <figure>
                                         <figcaption class="PokemonCompareName"><%= pokemon2Name %></figcaption>
-                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= picP2%>.png" alt="picture of pokemon1">
+                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon//other/official-artwork/<%= picP2%>.png" alt="picture of pokemon1">
                                     </figure>
                                     <p>weight: <%= pokemon2Weight %></p>
                                 <% 
