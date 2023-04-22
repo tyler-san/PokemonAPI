@@ -1,0 +1,33 @@
+/*battler page*/
+
+.hpbar {
+    background-color: green;
+    width: 10pc;
+    height: 1pc;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: auto;
+}
+
+.battle-btn {
+    display: block;
+    margin: auto;
+}
+
+.battlerWelkom {
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.battlerWelkom p {
+    font-size: 20px;
+}
+
+#huidigePokemon {
+    flex-direction: column;
+}
+
+#battlerPokemon {
+    flex-direction: column;
+}
