@@ -197,7 +197,7 @@ main {
 
 }
 
-.pokemonContainer>#pokeball {
+.pokemonContainer > #pokeballButton {
     width: 150px;
     position: absolute;
     top: 92%;
@@ -209,18 +209,94 @@ main {
     display: flex;
     align-items: center;
     flex-direction: column;
-
+    justify-content: center;
+    height: 80vh;
 }
 
-.whoPokemonContainer>img {
+
+
+#whoPokemonImageContainer {
+    flex-direction: column;
+    width: 400px; height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#whoPokemonImage {
     width: 300px;
-
+    visibility: hidden;
     filter: brightness(0);
+    animation: fadeIn 3s;
 }
 
-.whoPokemonContainer>label {
-    align-self: flex-start;
+#whoPokemonImageBright {
+    width: 300px;
+    animation: brightnes 2s;
+    
 }
+
+
+
+
+@keyframes brightnes {
+    0% { filter: brightness(0); }
+    100% { filter: brightness(1); }
+}
+
+
+.whoSearchBarSection {
+    display: block;
+    background-color: #EEEEEE;
+    width: 100%;
+    margin-left:2.5px; 
+}
+
+.whoSearchBarSection > p {
+    padding: 1rem;
+}
+
+.whoIsThatConatiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+}
+
+.whoSearchBar {
+    margin-top: 6rem;
+}
+
+#whoIsThatPokemonText {
+    font-size: 4rem;
+    align-self: center;
+    animation: fadeIn 3s;
+}
+
+#whoIsThatPokemonAni {
+    font-size: 4rem;
+    align-self: center;
+    margin-right: 3rem;
+    animation: fadeIna 2s;
+    
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIna {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+
+
+/* */
 
 .homepagina {
     display: grid;
@@ -284,7 +360,7 @@ ul {
     margin: 0px 0px 24px;
 }
 
-section {
+/* section {
     width: 90%;
     margin: 0 auto;
     margin-top: 20px;
@@ -294,7 +370,7 @@ section {
     justify-content: space-between;
     gap: 20px;
     background-color: white
-}
+} */
 
 article {
     /*flex: 1 1 350px;
