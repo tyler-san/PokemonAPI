@@ -5,17 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Huidige pokémon</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-
-    <script src="script.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/eigenPokemonExtra.css">
+  <%- include('partials/bootstrap')  %>
 
 </head>
 
@@ -35,38 +29,16 @@
       </article>
       <article class="switchbuttons">
         <ul>
-          <li><button class="shiny"><img src="images/shiny-icon.png" alt="shiny button"></button>Shiny</li>
-          <li><button class="gender"><img src="images/male-icon.png" alt="gender button"></button>Male</li>
+          <li><button class="buddy"></button>Buddy</li>
+          <li><button class="spritesStyle"></button>Sprites</li>
           <li><button class="turnAround"><img src="images/turn-icon.png" alt="fornt back button"></button>Front</li>
         </ul>
       </article>
-      <!-- <article class="right">
-        Een idee? verschillende stylen voor de "pokedex"
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Kies je pokédex-style
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Kanto</a></li>
-            <li><a class="dropdown-item" href="#">Johto</a></li>
-            <li><a class="dropdown-item" href="#">Hoenn</a></li>
-            <li><a class="dropdown-item" href="#">Sinnoh</a></li>
-            <li><a class="dropdown-item" href="#">Unova</a></li>
-            <li><a class="dropdown-item" href="#">Kalos</a></li>
-            <li><a class="dropdown-item" href="#">Alola</a></li>
-            <li><a class="dropdown-item" href="#">Galar</a></li>
-            <li><a class="dropdown-item" href="#">Hisui</a></li>
-            <li><a class="dropdown-item" href="#">Paldea</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Default</a></li>
-          </ul>
-        </div>
-      </article> -->
-
       <article class="left">
         <p>Bijnaam: Kiryu-Chan</p>
+        <button class="newNick"></button>
+        <button class="deleteNick"></button>
+        <button class="historyNick"></button>
 
       </article>
     </section>
