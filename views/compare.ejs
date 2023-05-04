@@ -7,6 +7,7 @@
     <title>Compare</title>
     <%- include('partials/bootstrap')  %>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/iconsStyle.css">
     <link rel="stylesheet" href="css/compare.css">
 </head>
 <body>
@@ -19,9 +20,9 @@
                 <div class="col">
                     <section id="compareBody">
                         <h1>Vergelijk Pokémon</h1>
-                        <form action="/getPokemon" method="post">
-                            <input type="text" autocomplete="off" name="pokemon1" placeholder="pokemon 1" class="compareField">
-                            <input type="text" name="pokemon2" autocomplete="off" placeholder="pokemon 2" class="compareField">
+                        <form action="/compare" method="post">
+                            <input type="text" autocomplete="off" name="pokemon1" placeholder="pokemon 1" class="compareField" value="<%= pokemon1Name %>">
+                            <input type="text" name="pokemon2" autocomplete="off" placeholder="pokemon 2" class="compareField" value="<%= pokemon2Name %>">
                             <button class="compareButton" type="submit">Vergelijk</button>
                             <div id="compareBox">
                                 <% if (statsP1 === undefined) { %>
@@ -33,6 +34,15 @@
                                 <div id="statsPokemon1" class="compareStats">
                                     <figure>
                                         <figcaption class="PokemonCompareName"><%= pokemon1Name %></figcaption>
+                                        <p>Type</p>
+                                        <section class="types">
+                                            <% typesP1.forEach(type => { %>
+                                                <div class="icon <%= type.type.name %>">
+                                                    <img src="images/icons/<%= type.type.name %>.svg" title="<%= type.type.name %>"/>
+                                                </div>
+                                                
+                                            <% });%>
+                                        </section>
                                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= picP1%>.png" alt="picture of pokemon1">
                                     </figure>
                                     <p>weight: <%= pokemon1Weight %></p>
@@ -59,6 +69,14 @@
                                 <div id="statsPokemon2" class="compareStats">
                                     <figure>
                                         <figcaption class="PokemonCompareName"><%= pokemon2Name %></figcaption>
+                                        <p>Type</p>
+                                        <section class="types">
+                                            <% typesP2.forEach(type => { %>
+                                                <div class="icon <%= type.type.name %>">
+                                                    <img src="images/icons/<%= type.type.name %>.svg" title="<%= type.type.name %>"/>
+                                                </div>
+                                            <% });%>
+                                        </section>
                                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon//other/official-artwork/<%= picP2%>.png" alt="picture of pokemon1">
                                     </figure>
                                     <p>weight: <%= pokemon2Weight %></p>
@@ -87,4 +105,5 @@
         </div>
     </main>
     
+    <script src="js/compare.js"></script>
     <%- include('partials/footer')  %> 
