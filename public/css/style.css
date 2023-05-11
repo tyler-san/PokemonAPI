@@ -210,23 +210,10 @@ main {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 75vh;
-}
-
-
-
-#whoPokemonImageContainer {
-    flex-direction: column;
-    width: 400px; height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
 }
 
 #whoPokemonImage {
     width: 300px;
-    visibility: hidden;
     filter: brightness(0);
     animation: fadeIn 3s;
 }
@@ -238,53 +225,63 @@ main {
 }
 
 
-
-
 @keyframes brightnes {
     0% { filter: brightness(0); }
     100% { filter: brightness(1); }
 }
 
 
-.whoSearchBarSection {
-    display: block;
+#whoSearchBarSection {
+    list-style-type: none;
     background-color: #EEEEEE;
     width: 100%;
     margin-left:2.5px; 
 }
 
-.whoSearchBarSection > p {
+.pokemonList > button {
     padding: 1rem;
+    background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  /* https://clubmate.fi/button-reset */
+
 }
 
 .whoIsThatConatiner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 75%;
+    width: 65%;
 }
 
 .whoSearchBar {
-    margin-top: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
 }
 
 #whoIsThatPokemonText {
-    font-size: 4rem;
+    font-size: 3rem;
     align-self: center;
-    animation: fadeIn 3s;
+}
+
+#resultText {
+    margin-top: 3rem;
+    font-size: 16pt;
+    display: none;
+    animation: fadeIna 2s;
 }
 
 #whoIsThatPokemonAni {
-    font-size: 4rem;
+    font-size: 3rem;
     align-self: center;
-    margin-right: 3rem;
     animation: fadeIna 2s;
+    margin-right: 2rem;
+    display: none;
     
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 @keyframes fadeIna {

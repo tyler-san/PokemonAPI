@@ -1,78 +1,62 @@
-let pokemon=[];
-let nameOfPokemon = "";
 
-const loadPokemon = async () => {
+let allGenerationOfPokemon = [];
+
+const selectGenerationOfPokemon = async() => {
     try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`);
-        pokemon = await res.json();
+        const res = await fetch(`https://pokeapi.co/api/v2/generation/`);
+        allGenerationOfPokemon = await res.json();
+
+        let containerSelectPokemon = document.getElementById("generations");
         
-    }
-    catch (err) {
-        console.error(err);
-    }
-}
-
-
-const generationOfPokemon = async (nameOfPokemon) => {
-    let generationOfPokemon = "";
-    try {
-            
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${nameOfPokemon}`);
-            generationOfPokemon = await res.json();
-    }
-    catch (err) {
-        console.error(err);
-    }
-}
-
-
-
-const randomPokemonGenarator = async() => {
-    
-    let randomNumber = Math.floor(Math.random() * 1010) + 1;
-    await loadPokemon()
-    nameOfPokemon = pokemon.results[randomNumber].name;
-    spriteOfPokemon(pokemon.results[randomNumber].name);
-    generationOfPokemon(pokemon.results[randomNumber].name);
-    
-}
-
-const spriteOfPokemon = async(nameOfPokemon) => {
-    let pokemon = "";
-    await randomPokemonGenarator
-    try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameOfPokemon}`);
-        pokemon = await res.json();
-
-        let whoPokemonImage = document.getElementById("whoPokemonImage");
-        setTimeout(() => {
-            document.getElementById("loader").style.display = "none";
-            whoPokemonImage.src = pokemon.sprites.front_default;
-            whoPokemonImage.style.visibility = "visible"
-          }, "500");
+        let generation = allGenerationOfPokemon.results.map((generations) => {
+            return`
+            <option value="${generations.name}">${generations.name}</option>`
+        }
+        ) .join("")
+        containerSelectPokemon.innerHTML = generation + `<option value="allPokemons">All Pokemons</option>`;
+        
+        
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
+    
 }
 
-randomPokemonGenarator();
-
-
-
-const displayPokemonName = async() => {
+const chosenGeneration = async(gen) => {
     
-    await randomPokemonGenarator
+    let generationOfPokemon = "";
+    const res = await fetch(`https://pokeapi.co/api/v2/generation/${gen}`);
+    generationOfPokemon = await res.json();
+
+    let randomNumber = Math.floor(Math.random() * generationOfPokemon.pokemon_species.length) + 1;
+    console.log(generationOfPokemon.pokemon_species)
+
+    /* make it so that you can choose generation then choose pokemon via query param? */
+}
+
+const inputSelect = () => {
+    let inputUser = document.getElementById("generations").value;
+    if (inputUser == "allPokemons") {
+        console.log("you chose all gen")
+    } else{ 
+        chosenGeneration(inputUser)
+    }
+    console.log(inputUser)
+}
+
+
+selectGenerationOfPokemon();
+
+inputSelect;
+
+const displayPokemon = async() => {
     
     document.getElementById("whoPokemonImage").id="whoPokemonImageBright"
-    let whoOfPokemon = document.getElementById("whoIsThatPokemonText");
-    whoOfPokemon.id = "whoIsThatPokemonAni"
-    whoOfPokemon.innerHTML = `${nameOfPokemon.substring(0,1).toUpperCase()}${nameOfPokemon.substring(1)}`;
+    document.getElementById("whoIsThatPokemonText").style.display= "none";
+    document.getElementById("whoIsThatPokemonAni").style.display= "block";
+    document.getElementById("resultText").style.display= "block";   
 }
 
-
-
-
-/* note: some pokemon have no sprite, only an artwork */
 
 
 
