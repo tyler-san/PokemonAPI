@@ -215,19 +215,18 @@ main {
         "footer footer  footer  footer";
 
     margin: auto;
+    background-color: black;
 }
 
 
 
-header {
-    grid-area: header;
-    margin-right: 100%;
-}
+
 
 .mainhome {
     grid-area: main;
     padding: 0rem 0rem 1rem 0rem;
     /* margin-bottom: 50%;*/
+    
     background-color: #b80f0a;
     width: auto;
 
@@ -255,7 +254,7 @@ nav {
 }
 
 .laatste {
-    color: #EEEEEE;
+    color: black;
     margin: 16px -708.667px 0px 51.3958px;
 }
 
