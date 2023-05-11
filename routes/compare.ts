@@ -129,3 +129,4 @@ compare.post('/compare', (req: any, res: any) => {
 })
 
 module.exports = compare
+export{getAllPokemonNames}

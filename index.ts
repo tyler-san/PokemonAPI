@@ -18,9 +18,11 @@ app.get("/", (req: any, res: any) => {
 
 const compareRoute = require('./routes/compare')
 const mypokemonRoute = require('./routes/mypokemon')
+const catchRoute = require('./routes/catch')
 
 app.use('/', compareRoute)
 app.use('/', mypokemonRoute)
+app.use('/', catchRoute)
 
 app.get('/eigenPokemonExtra',(req:any,res:any)=>{
     res.render('eigenPokemonExtra');
@@ -34,8 +36,8 @@ app.get("/home", (req: any, res: any) => {
   res.render("home");
 });
 
-app.get("/catch", (req: any, res: any) => {
-  res.render("catch");
+app.get("/catch:pokemon", (req: any, res: any) => {
+  res.render("catchThis");
 });
 
 app.get("/who", (req: any, res: any) => {
