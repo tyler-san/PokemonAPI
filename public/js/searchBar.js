@@ -51,16 +51,18 @@ const displayPokemonNames = (pokemons) => {
 };
 
 
-const changeInputValue = (value) => {     
-    console.log(value);
+const changeInputValue = (value) => {
     searchBarInput.value = value; /* https://www.kodeclik.com/how-to-get-value-of-button-clicked-in-javascript/ */
 };
 
 const disableForm = () => {
     searchBarInput.disabled = true;
-    searchBarSection.style.display = "none"
-    if (searchBarInput.value) {
-        console.log(pokemonAnswer)
+    searchBarSection.style.display = "none";
+    document.getElementById("resultText").style.display= "block"; 
+    if (searchBarInput.value.toLowerCase() == pokemonAnswer.toLowerCase()) {
+        document.getElementById("resultText").innerHTML = "Jouw attack is met 1 verhoogt";
+    } else {
+        document.getElementById("resultText").innerHTML = "Fout";
     }
 }
 

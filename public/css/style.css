@@ -269,7 +269,7 @@ main {
 }
 
 #resultText {
-    margin-top: 3rem;
+    margin-bottom: 6rem;
     font-size: 16pt;
     display: none;
     animation: fadeIna 2s;
