@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,7 @@
     <title>whoIsThatPokemon</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/pokeApi.js"></script>
+    <script defer src="js/searchBar.js"></script>
     <%- include('partials/bootstrap')  %>
 </head>
 <body>
@@ -16,35 +19,38 @@
         <%- include('partials/menu')  %> 
     </header>
     <main>
+        
         <section class="whoPokemonContainer">
         
             
+            <label for="generations">Choose a generation:</label>
+            <select name="generations" id="generations" onchange="inputSelect()">
+                
+            </select>
 
             <section class="whoIsThatConatiner">
-                <div id="whoPokemonImageContainer">
-                    <img id="loader" src="images/pokeballspin.gif" width="300px" alt="loader img">
-                    <img id="whoPokemonImage" src="" alt="Foto van pokemon">
-                </div>
-    
+                
+                    <img id="whoPokemonImage" src="<%= whoImageSrc %>" alt="Foto van pokemon">
                 
                 <p id="whoIsThatPokemonText">Who is <br> That <br> pokemon?</p>
+                <p id="whoIsThatPokemonAni"><%= nameOfPokemon %></p>
                 
             </section>
+            
 
             
             
             <section class="whoSearchBar">
-                <form autocomplete="off" onsubmit="displayPokemonName();return false;"> <!-- https://stackoverflow.com/questions/932653/how-to-prevent-buttons-from-submitting-forms -->
+                <form autocomplete="off" onsubmit="!!(displayPokemon() & disableForm());return false;"> <!-- https://stackoverflow.com/questions/932653/how-to-prevent-buttons-from-submitting-forms -->
                     <label for="pokemonName"></label>
-                    <input type="text" id="pokemonName" name="pokemonName">
-                    <!-- <section class="whoSearchBarSection">
-                        <p>Charizard</p>
-                        <p>Charm</p>
-                        <p>Cleffary</p>
-                    </section> -->
+                    <input type="text" id="pokemonName" name="pokemonName"> 
+                    
                 </form>
+                <ul id="whoSearchBarSection">
+            
+                </ul>
             </section>
-
+            <p id="resultText"></p>
             
         </section>
     </main>
