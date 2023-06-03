@@ -56,6 +56,7 @@ let whoPokemonImage = "";
 let catchPokemonImage = "";
 let errorMessage:string = "";
 let errorMessageClass:string = "Error";
+let huidigePokemonNaam:string = "";
 
 const loadPokemon = async (gen?:string) => {
   try {
@@ -147,8 +148,9 @@ app.get("/battler", (req: any, res: any) => {
 });
 
 app.get("/home", (req: any, res: any) => {
+  huidigePokemonNaam = "Charmander"
   currentUser.huidigePokemon = {
-    naam:"char"
+    naam:huidigePokemonNaam
   }
   res.render("home",{currentUser});
 });
