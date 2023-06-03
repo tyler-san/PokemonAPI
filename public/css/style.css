@@ -95,22 +95,36 @@ main {
 .pokemonContainer {
     display: flex;
     align-items: center;
+    margin: 0 auto;
+    width: 30rem;
     flex-direction: column;
     position: relative;
+    background-color: beige;
+    border-width: .3rem;
+    border-color: black;
+    border-style: solid;
+    padding: 2rem;
+    border-radius: 8rem;
 }
 
-.pokemonContainer>#pokemonImage {
-    width: 300px;
-    background-color: #EEEEEE;
 
+.pokemonContainer>#pokemonImage {
+    margin-top: 4rem;
+    width: 200px;
 }
 
 .pokemonContainer > #pokeballButton {
-    width: 150px;
-    position: absolute;
-    top: 92%;
+    margin-top: 4rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: #FF5C5C;
+    border-radius: 8rem;
 }
 
+.pokemonContainer > #pokeballButton > img {
+    width: 7rem;
+    
+}
 /* who page */
 
 .whoPokemonContainer {
@@ -146,6 +160,30 @@ main {
     margin-left:2.5px; 
 }
 
+
+#nextPokemon {
+    border:none;
+    padding: 2rem;
+    color: white;
+    display: inline-block;
+    align-self: flex-end;
+    display: none;
+    margin-top: -1.5rem;
+    border-radius: 1rem;
+    background-color: #b80f0a;
+}
+#choseGenContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#choseGenContainer > form {
+    display: flex;
+    flex-direction: column;
+}
+
 .pokemonList > button {
     padding: 1rem;
     background-color: transparent;
@@ -166,6 +204,11 @@ main {
     width: 65%;
 }
 
+.btn-outline-dark {
+   
+}
+
+
 .whoSearchBar {
     margin-top: 3rem;
     margin-bottom: 6rem;
@@ -177,7 +220,7 @@ main {
 }
 
 #resultText {
-    margin-bottom: 6rem;
+    margin-bottom: 6rm;
     font-size: 16pt;
     display: none;
     animation: fadeIna 2s;

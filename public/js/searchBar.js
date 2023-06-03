@@ -59,6 +59,17 @@ const disableForm = () => {
     searchBarInput.disabled = true;
     searchBarSection.style.display = "none";
     document.getElementById("resultText").style.display= "block"; 
+    setTimeout(() => {
+        document.getElementById("nextPokemon").style.display = "block"
+      }, "1500");
+
+
+    
+      console.log(searchBarInput.value)
+      console.log(pokemonAnswer)
+      pokemonAnswer = pokemonAnswer.replace(/\s/g, '');
+      searchBarInput.value =  searchBarInput.value.replace(/\s/g, '');
+      
     if (searchBarInput.value.toLowerCase() == pokemonAnswer.toLowerCase()) {
         document.getElementById("resultText").innerHTML = "Jouw attack is met 1 verhoogt";
     } else {

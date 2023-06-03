@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +16,11 @@
     </header>
     <main>
         <section class="pokemonContainer">
-            <h1>Charizard</h1>
-            <img id="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="image of a pokemon" >
-            <input id="pokeballButton" type="image" src="images/pokeball.png" alt="imagePokeball">
+            <h1><%= nameOfPokemon %></h1>
+            <img id="pokemonImage" src="<%= imageSrc %>" alt="image of a pokemon" >
+           
+            <button id="pokeballButton" ><img src="images/pokeball.png" alt=""></button>
         </section>
+        
     </main>
     <%- include('partials/footer')  %>

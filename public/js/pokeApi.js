@@ -1,4 +1,3 @@
-
 let allGenerationOfPokemon = [];
 
 const selectGenerationOfPokemon = async() => {
@@ -8,13 +7,16 @@ const selectGenerationOfPokemon = async() => {
 
         let containerSelectPokemon = document.getElementById("generations");
         
-        let generation = allGenerationOfPokemon.results.map((generations) => {
+        let generation = allGenerationOfPokemon.results.map((generations,i) => {
             return`
-            <option value="${generations.name}">${generations.name}</option>`
+            <option value="${generations.name}">Generation ${i+1} </option>`
         }
         ) .join("")
         containerSelectPokemon.innerHTML = generation + `<option value="allPokemons">All Pokemons</option>`;
-        
+        let err = document.getElementById("err")
+        if (err.innerText != "" ) {
+            document.location.reload(true)
+        } 
         
     } catch (error) {
         console.log(error)
@@ -22,32 +24,7 @@ const selectGenerationOfPokemon = async() => {
     
 }
 
-const chosenGeneration = async(gen) => {
-    
-    let generationOfPokemon = "";
-    const res = await fetch(`https://pokeapi.co/api/v2/generation/${gen}`);
-    generationOfPokemon = await res.json();
-
-    let randomNumber = Math.floor(Math.random() * generationOfPokemon.pokemon_species.length) + 1;
-    console.log(generationOfPokemon.pokemon_species)
-
-    /* make it so that you can choose generation then choose pokemon via query param? */
-}
-
-const inputSelect = () => {
-    let inputUser = document.getElementById("generations").value;
-    if (inputUser == "allPokemons") {
-        console.log("you chose all gen")
-    } else{ 
-        chosenGeneration(inputUser)
-    }
-    console.log(inputUser)
-}
-
-
 selectGenerationOfPokemon();
-
-inputSelect;
 
 const displayPokemon = async() => {
     
@@ -56,8 +33,4 @@ const displayPokemon = async() => {
     document.getElementById("whoIsThatPokemonAni").style.display= "block";
     document.getElementById("resultText").style.display= "block";   
 }
-
-
-
-
 
