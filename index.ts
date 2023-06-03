@@ -5,23 +5,11 @@ const ejs = require("ejs");
 const {MongoClient} = require('mongodb');
 
 
-const uri = "mongodb+srv://tylerimagbudu:5fJJHvndGUZDSP0l@cluster0.7iumbvx.mongodb.net/Poketest?retryWrites=true&w=majority"
+
+
+const uri:string = "mongodb+srv://rolly:124501@pokemonapi.wg5kecx.mongodb.net/?retryWrites=true&w=majority"
+
 const client = new MongoClient(uri, { useUnifiedTopology: true });
-
-/* const uri:string = "mongodb+srv://tylerimagbudu:<password>@pokemon.bu5txoy.mongodb.net/";
-
-const client = new MongoClient(uri);
-
-const catchAPokemon = async () => {
-  try {
-      await client.connect();
-  } catch (e) {
-      console.error(e);
-  } finally {
-      await client.close();
-  }
-}
-catchAPokemon(); */
 
 app.set('view engine','ejs');
 app.set('port', 3000);
@@ -36,6 +24,29 @@ app.get("/", (req: any, res: any) => {
   res.render("index");
 });
 
+
+interface User {
+  _id?:string
+  name:string
+  email:string
+  password:string
+  catchedPokemon?:[
+    {}
+  ]
+  huidigePokemon?:{
+
+  }
+}
+
+let currentUser:User = {
+  _id:"",
+  name:"Guest",
+  email:"",
+  password:""
+}
+
+
+
 const compareRoute = require('./routes/compare')
 const mypokemonRoute = require('./routes/mypokemon')
 
@@ -43,6 +54,9 @@ let pokemonApI:any = [];
 let nameOfPokemon = "";
 let whoPokemonImage = "";
 let catchPokemonImage = "";
+let errorMessage:string = "";
+let errorMessageClass:string = "Error";
+
 const loadPokemon = async (gen?:string) => {
   try {
 
@@ -133,7 +147,10 @@ app.get("/battler", (req: any, res: any) => {
 });
 
 app.get("/home", (req: any, res: any) => {
-  res.render("home");
+  currentUser.huidigePokemon = {
+    naam:"char"
+  }
+  res.render("home",{currentUser});
 });
 
 app.get("/catch", async (req: any, res: any) => {
@@ -225,7 +242,71 @@ app.get("/whoGenerations", async (req: any, res: any) => {
   }
 
     res.render("whoGenerations",{whoImageSrc:pokemon.data.sprites.other["official-artwork"].front_default,nameOfPokemon:`${genPokeName.substring(0,1).toUpperCase()}${genPokeName.substring(1)}`,inputGen:numberGen,errMessage:errMessage})
-  });
+});
+
+app.get("/login", async (req: any, res: any) => {
+  res.render("login")
+});
+
+app.post("/login", async (req: any, res: any) => {
+  
+  
+  let cursor = await client.db('PokemonDB').collection('Users').findOne({email:req.body.email})
+  let cursor2 = await client.db('PokemonDB').collection('Users').findOne({password:req.body.password})
+  cursor._id = cursor._id.toString()
+  
+  currentUser = cursor;
+  
+    if (cursor == null || cursor2 == null ) {
+      errorMessage = "Foute Email of passwoord"
+      res.render("login",{errorMessage:errorMessage,errorMessageClass:errorMessageClass})
+    } else {
+      res.redirect("home")
+    }
+
+  
+});
+
+app.get("/signUp", async (req: any, res: any) => {
+  res.render("signUp")
+});
+
+app.post("/signUp", async (req: any, res: any) => {
+  
+  let newUser:User = {
+    name:req.body.username,
+    email:req.body.email,
+    password:req.body.password
+  }
+  console.log(newUser)
+  
+   try {
+    await client.connect();
+    
+    
+    let cursor = await client.db('PokemonDB').collection('Users').findOne({email:req.body.email})
+    
+    if (cursor == null) {
+      await client.db('PokemonDB').collection('Users').insertOne(newUser);
+      errorMessage = "Account succevol aangemaakt!"
+      errorMessageClass = "Succes"
+    } 
+    else if (req.body.email === cursor.email) {
+      errorMessage = "Email bestaat al"
+    };
+    
+    
+} catch (e) {
+    console.error(e);
+    errorMessageClass = "Error"
+    errorMessage = "Aanmaak mislukt, probeer terug opnieuw"
+} finally {
+    await client.close();
+} 
+
+
+  res.render("signUp",{errorMessage:errorMessage,errorMessageClass:errorMessageClass})
+});
 
 app.use((req: any, res: any) => {
   res.status(404);
