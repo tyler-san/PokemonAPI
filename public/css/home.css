@@ -1,0 +1,48 @@
+ section {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: white
+} 
+
+.poke{
+    
+    width: 1747px;
+    height: 500px;
+}
+
+.homeheader {
+    grid-area: header;
+    height: 500px;
+    
+    object-fit:contain;
+}
+.mainhome {
+    grid-area: main;
+    padding: 0rem 0rem 1rem 0rem;
+    /* margin-bottom: 50%;*/
+    
+    background-color:black;
+    width: auto;
+
+
+
+
+}
+.headerofpokedex
+{
+    background-color: red;
+    text-align: center;
+    text-decoration: overline;
+    color: white;
+
+}
+
+
+
+

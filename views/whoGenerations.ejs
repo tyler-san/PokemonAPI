@@ -23,16 +23,15 @@
         <section class="whoPokemonContainer">
             
             <a class="btn btn-outline-dark" href="/chooseGeneration" role="button">Kies een generatie &raquo;</a>
-            <p id="currentGen">Current generation:<b> All generations </b></p>
-
             
-
+            <p id="currentGen">Huidige generatie: <b>Generation <%= locals.inputGen %></b></p>
             <section class="whoIsThatConatiner">
                 
                     <img id="whoPokemonImage" src="<%= whoImageSrc %>" alt="Foto van pokemon">
                 
                 <p id="whoIsThatPokemonText">Who is <br> That <br> pokemon?</p>
-                <p id="whoIsThatPokemonAni"><%= nameOfPokemon %></p>
+                <p id="whoIsThatPokemonAni"><%= nameOfPokemon %> </p>
+                
                 
             </section>
             <section class="whoSearchBar">
@@ -46,6 +45,7 @@
             </section>
             <p id="resultText"></p>
             <button id="nextPokemon" type="button" value="Volgende pokemon" onClick="document.location.reload(true)"> Volgende pokemon </button>
+            <p id="err"><%= locals.errMessage%></p>
             
         </section>
     </main>

@@ -95,22 +95,36 @@ main {
 .pokemonContainer {
     display: flex;
     align-items: center;
+    margin: 0 auto;
+    width: 30rem;
     flex-direction: column;
     position: relative;
+    background-color: beige;
+    border-width: .3rem;
+    border-color: black;
+    border-style: solid;
+    padding: 2rem;
+    border-radius: 8rem;
 }
 
-.pokemonContainer>#pokemonImage {
-    width: 300px;
-    background-color: #EEEEEE;
 
+.pokemonContainer>#pokemonImage {
+    margin-top: 4rem;
+    width: 200px;
 }
 
 .pokemonContainer > #pokeballButton {
-    width: 150px;
-    position: absolute;
-    top: 92%;
+    margin-top: 4rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: #FF5C5C;
+    border-radius: 8rem;
 }
 
+.pokemonContainer > #pokeballButton > img {
+    width: 7rem;
+    
+}
 /* who page */
 
 .whoPokemonContainer {
@@ -118,23 +132,10 @@ main {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 75vh;
-}
-
-
-
-#whoPokemonImageContainer {
-    flex-direction: column;
-    width: 400px; height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
 }
 
 #whoPokemonImage {
     width: 300px;
-    visibility: hidden;
     filter: brightness(0);
     animation: fadeIn 3s;
 }
@@ -146,53 +147,92 @@ main {
 }
 
 
-
-
 @keyframes brightnes {
     0% { filter: brightness(0); }
     100% { filter: brightness(1); }
 }
 
 
-.whoSearchBarSection {
-    display: block;
+#whoSearchBarSection {
+    list-style-type: none;
     background-color: #EEEEEE;
     width: 100%;
     margin-left:2.5px; 
 }
 
-.whoSearchBarSection > p {
+
+#nextPokemon {
+    border:none;
+    padding: 2rem;
+    color: white;
+    display: inline-block;
+    align-self: flex-end;
+    display: none;
+    margin-top: -1.5rem;
+    border-radius: 1rem;
+    background-color: #b80f0a;
+}
+#choseGenContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#choseGenContainer > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemonList > button {
     padding: 1rem;
+    background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  /* https://clubmate.fi/button-reset */
+
 }
 
 .whoIsThatConatiner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 75%;
+    width: 65%;
 }
 
+.btn-outline-dark {
+   
+}
+
+
 .whoSearchBar {
-    margin-top: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
 }
 
 #whoIsThatPokemonText {
-    font-size: 4rem;
+    font-size: 3rem;
     align-self: center;
-    animation: fadeIn 3s;
+}
+
+#resultText {
+    margin-bottom: 6rm;
+    font-size: 16pt;
+    display: none;
+    animation: fadeIna 2s;
 }
 
 #whoIsThatPokemonAni {
-    font-size: 4rem;
+    font-size: 3rem;
     align-self: center;
-    margin-right: 3rem;
     animation: fadeIna 2s;
+    margin-right: 2rem;
+    display: none;
     
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 @keyframes fadeIna {
@@ -215,19 +255,18 @@ main {
         "footer footer  footer  footer";
 
     margin: auto;
+    background-color: black;
 }
 
 
 
-header {
-    grid-area: header;
-    margin-right: 100%;
-}
+
 
 .mainhome {
     grid-area: main;
     padding: 0rem 0rem 1rem 0rem;
     /* margin-bottom: 50%;*/
+    
     background-color: #b80f0a;
     width: auto;
 
@@ -255,7 +294,7 @@ nav {
 }
 
 .laatste {
-    color: #EEEEEE;
+    color: black;
     margin: 16px -708.667px 0px 51.3958px;
 }
 
