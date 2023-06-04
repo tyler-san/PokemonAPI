@@ -1,3 +1,10 @@
+body {
+    background: url("../images/teamrocketbg.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
  section {
     width: 90%;
     margin: 0 auto;
@@ -15,24 +22,11 @@
     width: 1747px;
     height: 500px;
 }
-
-.homeheader {
-    grid-area: header;
-    height: 500px;
-    
-    object-fit:contain;
-}
 .mainhome {
     grid-area: main;
     padding: 0rem 0rem 1rem 0rem;
     /* margin-bottom: 50%;*/
-    
-    background-color:black;
     width: auto;
-
-
-
-
 }
 .headerofpokedex
 {
@@ -40,9 +34,20 @@
     text-align: center;
     text-decoration: overline;
     color: white;
+}
 
+button{
+    border: 2px soliid black;
+    border-radius: 20px;
+    padding: 10px
+}
+.knop{
+    font-size: 14pt;
 }
 
 
-
-
+@media only screen and (max-width:600px) {
+    section {
+        flex-direction: column;
+    }
+}

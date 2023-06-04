@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compare</title>
-    <%- include('partials/bootstrap')  %>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/iconsStyle.css">
     <link rel="stylesheet" href="css/compare.css">
+    <%- include('partials/bootstrap')  %>
 </head>
 <body>
     <header>
@@ -26,7 +26,7 @@
                             <button class="compareButton" type="submit">Vergelijk</button>
                             <div id="compareBox">
                                 <% if (statsP1 === undefined) { %>
-                                    <p>
+                                    <p class="welcometxt">
                                         Welkom op onze Pokémon vergelijkingspagina! Kies twee Pokémon om te zien hoe ze zich tot elkaar verhouden, of geef ons er één en we zullen een willekeurige Pokémon vinden om te vergelijken. Heb je geen Pokémon om te geven? Geen probleem, we zullen twee willekeurige exemplaren voor je kiezen en vergelijken!
                                     </p>
                                 <% }
