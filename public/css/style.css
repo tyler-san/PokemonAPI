@@ -204,6 +204,11 @@ main {
     width: 65%;
 }
 
+#catchText {
+    display: none;
+    font-weight: bold;
+}
+
 .whoSearchBar {
     margin-top: 3rem;
     margin-bottom: 6rem;

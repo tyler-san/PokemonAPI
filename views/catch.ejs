@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch</title>
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/catch.js"></script>
     <%- include('partials/bootstrap')  %>
 </head>
 <body>
@@ -19,7 +20,9 @@
             <h1><%= nameOfPokemon %></h1>
             <img id="pokemonImage" src="<%= imageSrc %>" alt="image of a pokemon" >
            
-            <button id="pokeballButton" ><img src="images/pokeball.png" alt=""></button>
+            <button id="pokeballButton" onclick="showMessage()"><img src="images/pokeball.png" alt=""></button>
+            <p id="catchText"><%= message  %></p>
+            <button type="button" value="Volgende pokemon" onClick="document.location.reload(true)"> Volgende pokemon </button>
         </section>
         
     </main>

@@ -33,17 +33,30 @@ interface User {
   catchedPokemon?:[
     {}
   ]
-  huidigePokemon?:{
-
-  }
+  huidigePokemon?:Pokemon
 }
 
 let currentUser:User = {
-  _id:"",
+  _id:"1",
   name:"Guest",
   email:"",
-  password:""
+  password:"",
+  huidigePokemon: {
+    naam:"Charmander",
+    stats:1,
+    sprite:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  }
 }
+
+export interface Pokemon {
+  id?: number
+  naam?: string
+  stats?: number
+  sprite?:string
+}
+
+
+
 
 
 
@@ -57,6 +70,7 @@ let catchPokemonImage = "";
 let errorMessage:string = "";
 let errorMessageClass:string = "Error";
 let huidigePokemonNaam:string = "";
+let pokemon:any = [];
 
 const loadPokemon = async (gen?:string) => {
   try {
@@ -88,7 +102,7 @@ const randomPokemonGenarator = async() => {
 };
 
 const spriteOfPokemon = async(nameOfPokemon:string) => {
-  let pokemon:any = [];
+  
   await randomPokemonGenarator
   try {
       pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${nameOfPokemon}`);
@@ -144,23 +158,129 @@ app.get('/eigenPokemonExtra',(req:any,res:any)=>{
 });
 
 app.get("/battler", (req: any, res: any) => {
+  
   res.render("battler");
 });
 
+app.get("/mine", async(req: any, res: any) => {
+  
+  
+  
+
+  try {
+  await client.connect();
+    
+  let cursor = await client.db('PokemonDB').collection('Users').findOne({email:currentUser.email})
+  
+
+
+  
+  currentUser = cursor
+
+  
+
+} catch (e) {
+    
+} finally {
+    await client.close();
+} 
+
+  res.render("mine",{currentUser:currentUser});
+});
+
 app.get("/home", (req: any, res: any) => {
+  
   huidigePokemonNaam = "Charmander"
   currentUser.huidigePokemon = {
-    naam:huidigePokemonNaam
+    naam:huidigePokemonNaam,
+    stats:52,
+    sprite:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
   }
+  currentUser.catchedPokemon = [currentUser.huidigePokemon]
+
+  
+    
   res.render("home",{currentUser});
 });
 
 app.get("/catch", async (req: any, res: any) => {
 
-  await loadPokemon()
-  randomPokemonGenarator();
+  
 
-  res.render("catch",{pokemon:pokemonApI.data.results,imageSrc:catchPokemonImage,nameOfPokemon:nameOfPokemon});
+  let randomPokemonNameCap = ""
+  let message = "";
+    try {
+      await client.connect();
+      
+      let randomPokemonName:string = ""
+
+  await loadPokemon()
+  await randomPokemonGenarator();
+
+  let randomNumber = Math.floor(Math.random() * 1010) + 1;
+
+  randomPokemonName = pokemonApI.data.results[randomNumber].name
+
+  
+
+  await spriteOfPokemon(randomPokemonName)
+
+ 
+
+  randomPokemonNameCap = `${randomPokemonName.substring(0,1).toUpperCase()}${randomPokemonName.substring(1)}`
+  
+
+  let targetPokemon = pokemon.data;
+
+
+    let test =  currentUser?.huidigePokemon?.stats ?? 1
+    let catchChance = 100-targetPokemon.stats[2].base_stat + test
+
+    let catchProbab = catchChance /100;
+
+    
+  
+    console.log(catchProbab)
+    const  chanceToPerformAction = (chance:number) => {
+      const randomNumber = Math.random(); 
+      if (randomNumber < chance) {
+        
+        currentUser?.catchedPokemon?.push(randoPokemon)
+        message = "Pokemon gevangen"
+        console.log(currentUser.catchedPokemon)
+        
+      } else {
+        
+        console.log('Action skipped.');
+        message = "Niet gevangen"
+      }
+    }
+
+    
+    
+    
+    const chanceValue = 0; 
+    
+
+    let randoPokemon:Pokemon = {
+      naam:randomPokemonNameCap,
+      stats:targetPokemon.stats[1].base_stat,
+      sprite:catchPokemonImage
+    }
+
+    chanceToPerformAction(catchProbab);
+      
+    await client.db('PokemonDB').collection('Users').updateMany({email:currentUser.email},{$set:{catchPokemon:currentUser.catchedPokemon}},{upsert:true})
+      
+  } catch (e) {
+      console.error(e);
+      
+  } finally {
+      await client.close();
+  }
+  
+
+  res.render("catch",{pokemon:pokemonApI.data.results,imageSrc:catchPokemonImage,nameOfPokemon:randomPokemonNameCap,message:message});
 });
 
 
@@ -247,14 +367,19 @@ app.get("/whoGenerations", async (req: any, res: any) => {
 });
 
 app.get("/login", async (req: any, res: any) => {
-  res.render("login")
+  if (currentUser._id !== "1") {
+    res.redirect("home")
+  } else {
+    res.render("login")
+  }
+  
 });
 
 app.post("/login", async (req: any, res: any) => {
   
   
 
-    try {
+  try {
       await client.connect();
       
       
@@ -262,8 +387,25 @@ app.post("/login", async (req: any, res: any) => {
   let cursor = await client.db('PokemonDB').collection('Users').findOne({email:req.body.email})
   let cursor2 = await client.db('PokemonDB').collection('Users').findOne({password:req.body.password})
   cursor._id = cursor._id.toString()
+
+  
+
+  
   
   currentUser = cursor;
+
+  if (currentUser.huidigePokemon == null) {
+    huidigePokemonNaam = "Charmander"
+    currentUser.huidigePokemon = {
+    naam:huidigePokemonNaam,
+    stats:52,
+    sprite:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+  }
+  currentUser.catchedPokemon = [currentUser.huidigePokemon]
+  await client.db('PokemonDB').collection('Users').updateMany({email:currentUser.email},{$set:{catchPokemon:currentUser.catchedPokemon}},{upsert:true})
+  await client.db('PokemonDB').collection('Users').updateOne({email:currentUser.email}, {$set:{huidigePokemon:currentUser.huidigePokemon}},{upsert:true})
+  
+  }
   
     if (cursor == null || cursor2 == null ) {
       errorMessageClass = "Error"
@@ -286,7 +428,12 @@ app.post("/login", async (req: any, res: any) => {
 });
 
 app.get("/signUp", async (req: any, res: any) => {
-  res.render("signUp")
+
+  if (currentUser._id !== "1") {
+    res.redirect("home");
+  } else {
+    res.render("signUp");
+  }
 });
 
 app.post("/signUp", async (req: any, res: any) => {
@@ -305,13 +452,22 @@ app.post("/signUp", async (req: any, res: any) => {
     let cursor = await client.db('PokemonDB').collection('Users').findOne({email:req.body.email})
     
     if (cursor == null) {
-      await client.db('PokemonDB').collection('Users').insertOne(newUser);
+      if (req.body.password.length > 6) {
+        await client.db('PokemonDB').collection('Users').insertOne(newUser);
       errorMessage = "Account succevol aangemaakt!"
       errorMessageClass = "Succes"
+      } else if (req.body.password.length <= 6) {
+        errorMessage = "Passwoord bevat minder dan 7 karakaters"
+        errorMessageClass = "Error"
+      }
     } 
-    else if (req.body.email === cursor.email) {
-      errorMessage = "Email bestaat al"
-    };
+    if (cursor != null) {
+      
+        errorMessage = "Email bestaat al"
+        errorMessageClass = "Error"
+        cursor = null
+      
+    }
     
     
 } catch (e) {
@@ -324,6 +480,15 @@ app.post("/signUp", async (req: any, res: any) => {
 
 
   res.render("signUp",{errorMessage:errorMessage,errorMessageClass:errorMessageClass})
+});
+
+app.get("/signUp", async (req: any, res: any) => {
+
+  if (currentUser._id !== "1") {
+    res.redirect("home");
+  } else {
+    res.render("signUp");
+  }
 });
 
 app.use((req: any, res: any) => {
