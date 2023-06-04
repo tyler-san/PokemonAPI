@@ -4,6 +4,10 @@ html {
     box-sizing: border-box;
 }
 
+p{
+    font-size: 16pt;
+}
+
 body {
     position: relative;
     margin: 0;
@@ -250,29 +254,11 @@ main {
     display: grid;
     grid-template-areas:
         "nav    nav     nav     nav   "
-        "header header  header  header"
         " main main  main main   "
         "footer footer  footer  footer";
 
     margin: auto;
     background-color: black;
-}
-
-
-
-
-
-.mainhome {
-    grid-area: main;
-    padding: 0rem 0rem 1rem 0rem;
-    /* margin-bottom: 50%;*/
-    
-    background-color: #b80f0a;
-    width: auto;
-
-
-
-
 }
 
 footer {

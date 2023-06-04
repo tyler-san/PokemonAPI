@@ -1,3 +1,10 @@
+body {
+    background: url("../images/pokemonField.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 /*Compare page*/
 
 .compareStats {
@@ -5,6 +12,7 @@
     padding: 1pc;
     width: 350px;
     border-radius: 20px;
+    background-color: white;
 }
 
 .compareField {
@@ -24,12 +32,13 @@
     border-radius: 35px;
     padding: 10px 20px 10px 20px;
     background-color: black;
-    color: #b80f0a;
+    color: white;
     font-weight: bold;
 }
 
 .comparecontainer {
     min-height: 100%;
+    padding-bottom: 5rem;
 }
 
 #compareBody {
@@ -38,6 +47,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+#compareBody h1{
+    color: white;
 }
 
 #compareBox {
@@ -51,6 +64,13 @@
     text-transform: uppercase;
 }
 
+.welcometxt{
+    border: 5px solid black;
+    background-color: white;
+    padding: 1pc;
+    border-radius: 20px;
+}
+
 .PokemonCompareName {
     font-size: 24px;
     text-transform: uppercase;
@@ -58,4 +78,12 @@
 
 figure img{
     width: 200px;
+}
+
+@media only screen and (max-width:600px) {
+    .compareStats {
+        border: 2px solid black;
+        padding: 1pc;
+        width: 250px;
+    }
 }
