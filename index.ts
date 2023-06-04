@@ -253,6 +253,12 @@ app.get("/login", async (req: any, res: any) => {
 app.post("/login", async (req: any, res: any) => {
   
   
+
+    try {
+      await client.connect();
+      
+      
+      
   let cursor = await client.db('PokemonDB').collection('Users').findOne({email:req.body.email})
   let cursor2 = await client.db('PokemonDB').collection('Users').findOne({password:req.body.password})
   cursor._id = cursor._id.toString()
@@ -260,12 +266,22 @@ app.post("/login", async (req: any, res: any) => {
   currentUser = cursor;
   
     if (cursor == null || cursor2 == null ) {
+      errorMessageClass = "Error"
       errorMessage = "Foute Email of passwoord"
       res.render("login",{errorMessage:errorMessage,errorMessageClass:errorMessageClass})
     } else {
       res.redirect("home")
     }
-
+      
+      
+  } catch (e) {
+      console.error(e);
+      errorMessageClass = "Error"
+      errorMessage = "Login mislukt error 404"
+  } finally {
+      await client.close();
+  } 
+    
   
 });
 
