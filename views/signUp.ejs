@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokémon Sign Up Page</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="logSignPageContainer">
+  <div class="containerLogSign">
+    <h2>Sign Up</h2>
+    <form action="/signUp" method="post">
+      <label for="usernameLogin">Username</label>
+      <input required type="text" id="usernameLogin" name="username" placeholder="Your username..">
+
+      <label for="emailLogin">Email</label>
+      <input required type="email" id="emailLogin" name="email" placeholder="Your email..">
+
+      <label for="passwordLogin">Password</label>
+      <input required type="password" id="passwordLogin" name="password" placeholder="Your password..">
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="http://localhost:3000/login">Log in</a></p>
+    <p id="<%=locals.errorMessageClass%>"><%= locals.errorMessage %></p>
+  </div>
+</body>
+</html>

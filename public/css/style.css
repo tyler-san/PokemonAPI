@@ -208,10 +208,10 @@ main {
     width: 65%;
 }
 
-.btn-outline-dark {
-   
+#catchText {
+    display: none;
+    font-weight: bold;
 }
-
 
 .whoSearchBar {
     margin-top: 3rem;
@@ -327,3 +327,80 @@ article img {
 .navbar-collapse{
     flex: none;
 }
+
+
+/* login page */
+
+
+
+
+
+.logSignPageContainer {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700799911-optimized.jpg');
+    background-size: cover;
+  }
+
+  .containerLogSign {
+    width: 300px;
+    padding: 40px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+  }
+
+  .containerLogSign h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .containerLogSign input[type="text"],
+  .containerLogSign input[type="email"],
+  .containerLogSign input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  .containerLogSign button {
+    background-color: #4CAF50;
+    color: #333;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .containerLogSign button:hover {
+    background-color: #4CAF50;
+  }
+
+  .containerLogSign p {
+    text-align: center;
+  }
+
+  .containerLogSign img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+  }
+
+  #Succes {
+    padding: 0.5rem;
+    background-color: #4CAF50;
+    
+  }
+  #Error {
+    padding: 0.5rem;
+    background-color: red;
+    
+  }
