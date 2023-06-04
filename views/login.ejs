@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="logSignPageContainer">
+  <div class="containerLogSign">
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <label for="emailLogin">Email</label>
+        <input required type="email" id="emailLogin" name="email" placeholder="Your email..">
+
+      <label for="passwordLogin">Passwoord</label>
+      <input type="password" id="passwordLogin" name="password" placeholder="Jouw passwoord...">
+
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="http://localhost:3000/signUp">Sign up</a></p>
+    <p id="<%=locals.errorMessageClass%>"><%= locals.errorMessage %></p>
+  </div>
+</body>
+</html>
