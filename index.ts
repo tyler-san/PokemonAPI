@@ -114,17 +114,7 @@ interface DamageRelations{
 let players: Player[] = [];
 let allPokemon: Pokemon[] = [];
 
-//Functions
 
-//update current_pokemon and update nickname:
-// try to do damage typing
-// simple battle page and catch page
-// battle has to have a list of pokemon or random
-// if won you get the pokemon
-// evolving pokemon based on battle wins with currentPokemon
-// update attack en of defence bij correct raden pokemon/ update ook hp nag 4 keer juist raden
-//Log ou pagina en profiel pagina
-// drawings?
 const createUser = async (user: User) => {
   try {
       await client.connect();
@@ -196,7 +186,6 @@ const updatePlayer = async (player: Player, isShiny:boolean, gender: string) => 
           player.pokemon[0].isShiny = true;
           player.pokemon[0].gender =gender;
           if (player.pokemon.length == 1) {
-              console.log("woah")
               await client.db("Pokedexpress").collection("Player").updateOne({ _id: player._id }, {
   
                   $set: {
@@ -219,7 +208,6 @@ const updatePlayer = async (player: Player, isShiny:boolean, gender: string) => 
       }else{
           player.pokemon[0]._id = new ObjectId();
           if (player.pokemon.length == 1) {
-              console.log("woah")
               await client.db("Pokedexpress").collection("Player").updateOne({ _id: player._id }, {
   
                   $set: {
@@ -256,11 +244,8 @@ const loadPokemonFromDb = async () => {
 
 
       if (dbPokemon.length >= 151) {
-          console.log("Pokemon found in db... using these");
           allPokemon = dbPokemon;
-          console.log(dbPokemon.length);
       } else {
-          console.log("Pokemon loading from the api")
 
 
           for (let i = 1; i < 152; i++) {
@@ -372,7 +357,6 @@ const loadPokemonFromDb = async () => {
               allPokemon = [...allPokemon, pokemon];
           }
           await client.db("Pokedexpress").collection("Pokemon").insertMany(allPokemon);
-          console.log("Pokemon found in API... using these")
 
 
       }
@@ -493,8 +477,6 @@ app.get("/player/:id/pokemonList", async (req, res) => {
 app.post("/createPlayer", async (req, res) => {
   let name: string = req.body.name;
 
-  console.log(`Creating player: ${name}`);
-
   await createPlayer({
       name: name,
       pokemon: [],
@@ -502,40 +484,11 @@ app.post("/createPlayer", async (req, res) => {
   res.redirect("/");
 });
 
-// app.post('/register', async (req, res) => {
-//     const nickname = req.body.nickname;
-//     const password = req.body.password;
-//     const confirm_password = req.body.confirm_password;
-//     const region = req.body.region;
-//     if (password !== confirm_password) {
-//         res.render('register', { notification: 'Passwords do not match. Please try again.' });
-//     } else {
-//         const result = await createUser({ nickname, password, region });
-//         if (result === 'Registration successful!') {
-//             res.redirect('/?notification=' + encodeURIComponent(result));
-//         } else {
-//             res.render('register', { notification: result });
-//         }
-//     }
-// });
-// app.post('/login', async (req, res) => {
-//     const nickname = req.body.nickname;
-//     const password = req.body.password;
-//     const result = await loginUser(nickname, password);
-//     if (result === 'Login successful!') {
-//         res.redirect('/?notification=' + encodeURIComponent(result));
-//     } else {
-//         res.render('login', { notification: result });
-//     }
-// });
 
 app.post("/player/:id/pokemonChooser/add/:pokeId", async (req, res) => {
   let player = getPlayerById(req.params.id);
   let isShiny: boolean = req.body.shiny === 'true';
   let gender: string =req.body.gender;
-  console.log(gender);
-  console.log(isShiny);
-  console.log(player)
   let pokemon: Pokemon | undefined = allPokemon.find(p => p.id === parseInt(req.params.pokeId));
   if (!player) {
       return res.status(404).send("Player not found");
@@ -550,38 +503,6 @@ app.post("/player/:id/pokemonChooser/add/:pokeId", async (req, res) => {
   res.redirect(`/player/${player._id}/pokemonList`);
 
 });
-// app.post("/player/:id/pokemon/add/:pokeId", async (req, res) => {
-//     let player = getPlayerById(req.params.id);
-//     let pokemon: Pokemon | undefined = allPokemon.find(p => p.id === parseInt(req.params.pokeId));
-//     if (!player) {
-//         return res.status(404).send("Player not found");
-//     }
-//     if (!pokemon) {
-//         return res.status(404).send("Pokemon not found");
-//     }
-
-//     console.log(player.currentPokemon);
-
-//     await updatePlayer(player,);
-
-//     res.redirect(`/player/${player._id}`);
-
-// });
-// app.post("/player/:id/pokemon/delete/:pokeId", (req, res) => {
-//     let player = getPlayerById(req.params.id);
-//     let pokemon: Pokemon | undefined = allPokemon.find(p => p.id === parseInt(req.params.pokeId));
-//     if (!player) {
-//         return res.status(404).send("Player not found");
-//     }
-//     if (!pokemon) {
-//         return res.status(404).send("Pokemon not found");
-//     }
-
-//     player.pokemon = player.pokemon.filter(p => p.id !== parseInt(req.params.pokeId))
-
-//     res.redirect(`/player/${player._id}/pokemon`);
-
-// });
 
 
 app.use((req: any, res: any) => {
