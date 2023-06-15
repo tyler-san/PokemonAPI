@@ -1,0 +1,19 @@
+<%- include("partials/header")  %>
+<figure class="backgroundImage">
+    <img class="pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="">
+    <img class="trainer" src="/images/2275c1b42ddf9d6.png" alt="">
+</figure>
+
+    <div class="framed">
+        Welcome <%= player.name %>. What do you want to do?<br><br> 
+        
+        <form>
+        <ul class="buttons">
+            <li><button formaction="/player/<%=player._id%>/pokemonList">Pokemon-list</button></li>
+            <li><button formaction="/player/<%=player._id%>/pokemonSummary/pokemon/<%=player.pokemon[0]%>">Pokemon Summary</button></li>
+            <li><button formaction="/player/<%=player._id%>/pokemonChooser">Pokemon Chooser</button></li>
+            <li><button formaction="/"> EXIT</button></li>
+        </ul>
+        </form>
+    </div>
+<%- include("partials/footer")  %>

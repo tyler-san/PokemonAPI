@@ -1,0 +1,81 @@
+<% for(let pokemon of starters){%>
+    <!----Shiny 20% kans--->
+    <%let random1= Math.floor(Math.random() * 5); 
+    let random2= Math.floor(Math.random() * 5); %>
+    <!-----Gender--->
+    <% let genderRate = pokemon.genderRate;
+        let gender="" ;
+        if (genderRate== 0){
+            gender = "male"; 
+        }else if(genderRate == 8){
+            gender = "female"; 
+        }else if(genderRate<0){
+        gender = "none"; 
+        }else{
+        let genderRatePercent = 125 * genderRate; 
+        let randomGender = Math.floor(Math.random()*1000)+1;
+        if(randomGender<=genderRatePercent){
+            gender ="female";
+        }
+        else{
+            gender ="male";
+        };
+        }%>
+        <button class="starter-button" data-name="<%=pokemon.name%>">
+        <% if (random1 == random2){%>
+            <h2>Woah a shiny</h2>
+            <%if(gender == "male"){%>
+                <img src="<%=pokemon.shinyGifFront%>"><br>
+                nr <%=pokemon.nr%> <%=pokemon.name%> Gender: Male
+            <%}else if(gender == "female"){%>
+                <% if (pokemon.imageFrontFemale == null){%>
+                    <img src="<%=pokemon.imageFront%>"><br>
+                <%}else{%>
+                    <img src="<%=pokemon.imageFrontFemale%>"><br>
+                <%} %>
+                nr <%=pokemon.nr%> <%=pokemon.name%> Gender: Female
+            <%}else{%>
+                <img src="<%=pokemon.shinyGifFront%>"><br>
+                nr <%=pokemon.nr%> <%=pokemon.name%> Gender: None
+            <%}
+        }else{
+            if(gender == "male"){%>
+                <img src="<%=pokemon.gifFront%>"><br>
+                nr <%=pokemon.nr%> <%=pokemon.name%> Gender: Male
+            <%}else if(gender == "female"){%>
+                <% if (pokemon.imageFrontFemale == null){%>
+                    <img src="<%=pokemon.imageFront%>"><br>
+                <%}else{%>
+                    <img src="<%=pokemon.imageFrontFemale%>"><br>
+                <%} %>
+                nr <%=pokemon.nr%> <%=pokemon.name%> Gender: Female
+            <%}else{%>
+                <img src="<%=pokemon.gifFront%>"><br>
+                nr <%=pokemon.nr%> <%=pokemon.name%> Gender: None
+            <%}
+        }%>
+            <button id="popup" class="popup">
+                <button class="popup-content">
+                    <span class="close">&times;</span>
+                    <img src="team-rocket.png" alt="Team Rocket">
+                    <p id="popup-message"></p>
+                    <form>
+                        <%if(random1 == random2){%>
+                            <input type="hidden" name="shiny" value="true">
+                        <%}else{%>
+                            <input type="hidden" name="shiny" value="false">
+                        <%}if(gender == "male"){%>
+                            <input type="hidden" name="gender" value="male">
+                        <%}else if(gender=="female"){%>
+                            <input type="hidden" name="gender" value="female">
+                        <%}else{%>
+                            <input type="hidden" name="gender" value="none">
+                        <%}%>
+                        <button id="yes" formmethod="post" formaction="/player/<%= player._id%>/pokemonChooser/add/<%= pokemon.id%>">Yes</button>
+                    </form>
+                    <button id="no">No</button>
+                </button>
+            </button>
+        </button>
+<% } %>
+<%- include("partials/footer") %>

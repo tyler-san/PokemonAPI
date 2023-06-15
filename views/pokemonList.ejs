@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+<form>
+
+        <% if (player.pokemon.length>0 ){ %>
+            <table style="width: 100%;">
+                <tbody>
+                    <% for (let pokemon of player.pokemon) { %>
+                        <form method="POST" action="/player/<%= player._id%>/pokemonSummary/pokemon/<%= pokemon._id%>">
+                            <input type="hidden" name="pokeId" value="<%=pokemon._id%>">
+                            <% console.log(pokemon._id) %>
+                            <button>
+                                <% if (pokemon.gifFront == null) { %>
+                                    <% if (pokemon.imageFront == null) { %>
+                                        <img src="<%=pokemon.officialArtwork %>"> <br>
+                                    <% } else { %>
+                                        <img src="<%=pokemon.imageFront %>"> <br>
+                                    <% } %>
+                                <% } else { %>
+                                    <img src="<%=pokemon.gifFront %>"> <br>
+                                <% } %>
+                                <%= pokemon.name%> #<%=pokemon.id%> <br>
+                                <% for (let type of pokemon.types) { %>
+                                    <%= type %><img src=" /images/types/<%=type %>.gif">
+                                <% } %>
+                            </button>
+                            <input type="hidden" name="_id" value="<%= pokemon._id %>">
+                            <button type="submit"></button>
+                        </form>
+                    <br><br><br>
+                        <% } %>
+                </tbody>
+            </table>
+            <%}else {%>
+                <p>You don't have any pokémon yet!</p>
+                <% } %>
+<%- include("partials/footer") %>

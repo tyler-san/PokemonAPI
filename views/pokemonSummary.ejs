@@ -1,0 +1,144 @@
+<%- include("partials/header")  %>
+<%let myPokemon = player.pokemon.find(p => p._id.equals(pokemonId));%>
+<head>
+    <h1>Pokemon samenvatting</h1>
+</head>
+<main>
+    <section id="pokemon">
+        <article class="left">
+
+        </article>
+        <article class="middle">
+            <figure>
+                <% if(myPokemon.isShiny == true){%>
+                    <h2>#<%=myPokemon.nr  %>  <%=myPokemon.name%></h2><br>
+                    <img src="<%=myPokemon.shinyGifFront%>"><br>
+                    <% for (let type of myPokemon.types){%>
+                        <p><img src="/images/types/<%= type%>.gif"> <%=type%>   </p>
+                    <%}%>
+                <%}else{%>
+                    <h2>#<%=myPokemon.nr  %>  <%=myPokemon.name%></h2><br>
+                    <img src="<%=myPokemon.gifFront%>"><br>
+                    <% for (let type of myPokemon.types){%>
+                        <p><img src="/images/types/<%= type%>.gif"> <%=type%>   </p>
+                    <%}%>
+               <% } %>
+
+
+            </figure>
+        </article>
+    </article>
+    <article class="right">
+        <%= myPokemon.japanese %>
+    </article>
+</section>
+<section id="bioPokemon">
+    <article class="left">
+        <h3>Bio: <p><%= myPokemon.flavorText %></p> </h3>
+        <table>
+            <tr>
+                <td>
+                    <% if(myPokemon.baby==true) {%>
+                        Baby: Yes
+                    <% }else{ %>
+                        Baby: No
+                    <% } %> <br>
+                </td>
+                <td>
+                    <% if(myPokemon.legendary==true) {%>
+                        Legendary: Yes
+                    <% }else{ %>
+                        Legendary: No
+                    <% } %> <br>
+                </td>
+                <td>
+                    <% if(myPokemon.mythical==true) {%>
+                        Mythical: Yes
+                    <% }else{ %>
+                        Mythical: No
+                    <% } %> <br>
+                </td>
+                <td>
+                    <% if (myPokemon.habitat==null){%>
+                        None
+                    <%}else{%>
+                        <%= myPokemon.habitat %>
+                    <%}%>
+                </td>
+            </tr>
+        </table>
+    </article>
+    <article class="right">
+        Evolution path: <br>
+        <div style="display: inline-block; vertical-align: top;">
+            <% if(myPokemon.isShiny == true){%>
+                <img src="<%= myPokemon.evolution[0].shinyImage %>">
+                <br>
+                #<%=myPokemon.evolution[0].id %>
+                <%= myPokemon.evolution[0].name %>
+            <%}else{%>
+                <img src="<%= myPokemon.evolution[0].image %>">
+                <br>
+                #<%=myPokemon.evolution[0].id %>
+                <%= myPokemon.evolution[0].name %>
+            <%} %>
+
+        </div>
+        <% let evolutionStages = [myPokemon.evolution1, myPokemon.evolution2]; %>
+        <% for (let i = 0; i < evolutionStages.length; i++) { %>
+            <div style="display: inline-block; vertical-align: top;">
+                <% for (let j = 0; j < myPokemon.evolution.length; j++) { %>
+                    <% if ([].concat(...evolutionStages[i]).includes(myPokemon.evolution[j].name)) { %>
+                        <% if (myPokemon.isShiny == true){%>
+                            <img src="<%= myPokemon.evolution[j].shinyImage %>">
+                            <br>
+                            #<%=myPokemon.evolution[j].id %>
+                            <%= myPokemon.evolution[j].name %>
+                            <br>
+                        <%}else{%>
+                            <img src="<%= myPokemon.evolution[j].image %>">
+                            <br>
+                            #<%=myPokemon.evolution[j].id %>
+                            <%= myPokemon.evolution[j].name %>
+                            <br>
+                       <% } %>
+
+                    <% } %>
+                <% } %>
+            </div>
+        <% } %>
+    </article>
+</section>
+<section id="statsPokemon">
+    <article class="left">
+        <div class="progress-bar-container">
+            <label for="progressBarG">
+                HP <%= myPokemon.hp %>
+            </label>
+            <div class="progress-bar p<%=Math.floor((myPokemon.hp/270)*100)%>" id="progressBarG">
+            </div>
+        </div><br>
+        <div class="progress-bar-container">
+            <label for="progressBarG">
+                ATC <%= myPokemon.attack %>
+            </label>
+            <div class="progress-bar p<%=Math.floor((myPokemon.attack/200)*100)%>"
+                id="progressBarG"></div>
+        </div><br>
+        <div class="progress-bar-container">
+            <label for="progressBarG">
+                DEF <%= myPokemon.defense %>
+            </label>
+            <div class="progress-bar p<%=Math.floor((myPokemon.defense/250)*100)%>"
+                id="progressBarG"></div><br>
+        </div>
+        Total: <%= myPokemon.hp + myPokemon.attack + myPokemon.defense %>
+            <br>
+    </article>
+    <article class="right">
+        <%= myPokemon.weight %> <br>
+        <%= myPokemon.height %>
+    </article>
+</section>
+</main>
+<%- include("partials/footer")  %>
