@@ -1,10 +1,18 @@
-<%- include("partials/header")  %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
 <figure class="backgroundImage">
     <img class="pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="">
     <img class="trainer" src="/images/2275c1b42ddf9d6.png" alt="">
 </figure>
-
-    <div class="framed">
         Welcome <%= player.name %>. What do you want to do?<br><br> 
         
         <form>
@@ -15,5 +23,4 @@
             <li><button formaction="/"> EXIT</button></li>
         </ul>
         </form>
-    </div>
 <%- include("partials/footer")  %>
