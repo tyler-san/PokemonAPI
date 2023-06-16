@@ -30,10 +30,17 @@ interface User {
   name:string
   email:string
   password:string
-  catchedPokemon?:[
+  catchPokemon?:[
     {}
   ]
   huidigePokemon?:Pokemon
+}
+
+export interface Pokemon {
+  id?: number
+  naam?: string
+  stats?: number
+  sprite?:string
 }
 
 let currentUser:User = {
@@ -48,12 +55,7 @@ let currentUser:User = {
   }
 }
 
-export interface Pokemon {
-  id?: number
-  naam?: string
-  stats?: number
-  sprite?:string
-}
+
 
 
 
@@ -103,7 +105,7 @@ const randomPokemonGenarator = async() => {
 
 const spriteOfPokemon = async(nameOfPokemon:string) => {
   
-  await randomPokemonGenarator
+  
   try {
       pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${nameOfPokemon}`);
       if (pokemon.data.sprites.front_default == null) {
@@ -175,8 +177,9 @@ app.get("/mine", async(req: any, res: any) => {
 
 
   
-  currentUser = cursor
-
+  
+  
+  console.log(currentUser)
   
 
 } catch (e) {
@@ -189,48 +192,38 @@ app.get("/mine", async(req: any, res: any) => {
 });
 
 app.get("/home", (req: any, res: any) => {
-  
-  huidigePokemonNaam = "Charmander"
-  currentUser.huidigePokemon = {
-    naam:huidigePokemonNaam,
-    stats:52,
-    sprite:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-  }
-  currentUser.catchedPokemon = [currentUser.huidigePokemon]
-
-  
-    
   res.render("home",{currentUser});
 });
 
 app.get("/catch", async (req: any, res: any) => {
 
   
-
+  let targetPokemon:any
   let randomPokemonNameCap = ""
   let message = "";
     try {
       await client.connect();
       
       let randomPokemonName:string = ""
-
+      
   await loadPokemon()
-  await randomPokemonGenarator();
+  await randomPokemonGenarator;
 
+ 
   let randomNumber = Math.floor(Math.random() * 1010) + 1;
 
   randomPokemonName = pokemonApI.data.results[randomNumber].name
-
   
 
   await spriteOfPokemon(randomPokemonName)
 
  
+  
 
   randomPokemonNameCap = `${randomPokemonName.substring(0,1).toUpperCase()}${randomPokemonName.substring(1)}`
   
 
-  let targetPokemon = pokemon.data;
+  targetPokemon = pokemon.data;
 
 
     let test =  currentUser?.huidigePokemon?.stats ?? 1
@@ -245,9 +238,9 @@ app.get("/catch", async (req: any, res: any) => {
       const randomNumber = Math.random(); 
       if (randomNumber < chance) {
         
-        currentUser?.catchedPokemon?.push(randoPokemon)
+        currentUser?.catchPokemon?.push(randoPokemon)
         message = "Pokemon gevangen"
-        console.log(currentUser.catchedPokemon)
+        console.log(currentUser.catchPokemon)
         
       } else {
         
@@ -270,7 +263,7 @@ app.get("/catch", async (req: any, res: any) => {
 
     chanceToPerformAction(catchProbab);
       
-    await client.db('PokemonDB').collection('Users').updateMany({email:currentUser.email},{$set:{catchPokemon:currentUser.catchedPokemon}},{upsert:true})
+    await client.db('PokemonDB').collection('Users').updateMany({email:currentUser.email},{$set:{catchPokemon:currentUser.catchPokemon}},{upsert:true})
       
   } catch (e) {
       console.error(e);
@@ -280,17 +273,18 @@ app.get("/catch", async (req: any, res: any) => {
   }
   
 
-  res.render("catch",{pokemon:pokemonApI.data.results,imageSrc:catchPokemonImage,nameOfPokemon:randomPokemonNameCap,message:message});
+  res.render("catch",{pokemon:pokemonApI.data.results,imageSrc:catchPokemonImage,nameOfPokemon:targetPokemon.name,message:message});
 });
 
 
 
 app.get("/who", async (req: any, res: any) => {
   
-  await loadPokemon()
-  randomPokemonGenarator();
+  await loadPokemon();
+  await randomPokemonGenarator();
+  
 
-  res.render("who",{pokemon:pokemonApI.data.results,whoImageSrc:whoPokemonImage,nameOfPokemon:nameOfPokemon});
+  res.render("who",{pokemon:pokemonApI.data.results,whoImageSrc:whoPokemonImage,nameOfPokemon:pokemon.data.name});
 });
 
 
@@ -367,6 +361,7 @@ app.get("/whoGenerations", async (req: any, res: any) => {
 });
 
 app.get("/login", async (req: any, res: any) => {
+  console.log(currentUser)
   if (currentUser._id !== "1") {
     res.redirect("home")
   } else {
@@ -386,32 +381,34 @@ app.post("/login", async (req: any, res: any) => {
       
   let cursor = await client.db('PokemonDB').collection('Users').findOne({email:req.body.email})
   let cursor2 = await client.db('PokemonDB').collection('Users').findOne({password:req.body.password})
-  cursor._id = cursor._id.toString()
+ 
 
   
 
   
   
-  currentUser = cursor;
-
-  if (currentUser.huidigePokemon == null) {
-    huidigePokemonNaam = "Charmander"
-    currentUser.huidigePokemon = {
-    naam:huidigePokemonNaam,
-    stats:52,
-    sprite:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-  }
-  currentUser.catchedPokemon = [currentUser.huidigePokemon]
-  await client.db('PokemonDB').collection('Users').updateMany({email:currentUser.email},{$set:{catchPokemon:currentUser.catchedPokemon}},{upsert:true})
-  await client.db('PokemonDB').collection('Users').updateOne({email:currentUser.email}, {$set:{huidigePokemon:currentUser.huidigePokemon}},{upsert:true})
   
-  }
+
+  
   
     if (cursor == null || cursor2 == null ) {
       errorMessageClass = "Error"
       errorMessage = "Foute Email of passwoord"
       res.render("login",{errorMessage:errorMessage,errorMessageClass:errorMessageClass})
     } else {
+      currentUser = cursor;
+      if (currentUser.huidigePokemon == null) {
+        huidigePokemonNaam = "Charmander"
+        currentUser.huidigePokemon = {
+        naam:huidigePokemonNaam,
+        stats:52,
+        sprite:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+      }
+      currentUser.catchPokemon = [currentUser.huidigePokemon]
+      await client.db('PokemonDB').collection('Users').updateMany({email:currentUser.email},{$set:{catchPokemon:currentUser.catchPokemon}},{upsert:true})
+      await client.db('PokemonDB').collection('Users').updateOne({email:currentUser.email}, {$set:{huidigePokemon:currentUser.huidigePokemon}},{upsert:true})
+      
+      }
       res.redirect("home")
     }
       

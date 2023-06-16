@@ -18,16 +18,16 @@
     <%- include('partials/menu') %>
   </header>
   <main> 
-    <h1><b>Welkom, <%= locals.currentUser.name %> </b> </h1>
-    <p>HuidigePokemon: <%= locals.currentUser.huidigePokemon.naam %></p>
+    <h1><b>Welkom, <%= currentUser.name %> </b> </h1>
+    <p>HuidigePokemon: <%= currentUser.huidigePokemon.naam %></p>
     <img id="pokemonImage" src="<%= locals.currentUser.huidigePokemon.sprite %>" alt="">
-    <p>Naam: <%= locals.currentUser.huidigePokemon.naam %></p>
-    <p>Attack stat: <%= locals.currentUser.huidigePokemon.stats%></p>
+    <p>Naam: <%= currentUser.huidigePokemon.naam %></p>
+    <p>Attack stat: <%= currentUser.huidigePokemon.stats%></p>
     
     <p> <b> Gevangen Pokemon:  </b>  </p>
     <section>
       
-        <% locals.currentUser.catchPokemon.map((pokemon)=>{ %>
+        <% currentUser.catchPokemon.map((pokemon)=>{ %>
           <div>
             <img id="pokemonImage" src="<%= pokemon.sprite %>" alt="">
             <p>Naam: <%= pokemon.naam %></p>

@@ -71,7 +71,7 @@ const disableForm = () => {
       searchBarInput.value =  searchBarInput.value.replace(/\s/g, '');
       
     if (searchBarInput.value.toLowerCase() == pokemonAnswer.toLowerCase()) {
-        document.getElementById("resultText").innerHTML = "Jouw attack is met 1 verhoogt";
+        document.getElementById("resultText").innerHTML = "Juist";
     } else {
         document.getElementById("resultText").innerHTML = "Fout";
     }
